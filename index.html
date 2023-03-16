@@ -27,92 +27,234 @@
 
             width: 100%;
         }
+		nav {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			background-color: #202020;
+			color: #fff;
+			padding: 20px;
+			position: fixed;
+			top: 0;
+			width: 100%;
+			z-index: 9999;
+		  }
+		  
+		  nav h1 {
+			margin: 0;
+			font-size: 1.5rem;
+		  }
+		  
+		  nav ul {
+			display: flex;
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+		  }
+		  
+		  nav li {
+			margin-left: 20px;
+		  }
+		  
+		  nav a {
+			text-decoration: none;
+			color: #fff;
+		  }
+		  
+		  nav a:hover {
+			text-decoration: underline;
+		  }
+		  
+		  footer {
+			background-color: #202020;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+			margin-top: 100px;
+		  }
+		  
+		  footer p {
+			margin: 0;
+			font-size: 0.8rem;
+		  }
+		  
+		  footer a {
+			text-decoration: none;
+			color: #fff;
+		  }
+		  
+		  footer a:hover {
+			text-decoration: underline;
+		  }
+.social-icons {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+  }
+  
+  .social-icons li {
+	display: inline-block;
+	margin-right: 10px;
+  }
+  
+  .social-icons li:last-child {
+	margin-right: 0;
+  }
+  
+  .social-icons a {
+	display: inline-block;
+	font-size: 20px;
+	color: #fff;
+	background-color: #3b5998;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+  }
+  
+  .social-icons a:hover {
+	color: #fff;
+	background-color: #2d4373;
+  }
+  
+  .social-icons .fa {
+	margin-top: 10px;
+  }
+  
+  .contact-info {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+  }
+  
+  .contact-info li {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+  }
+  
+  .contact-info li:last-child {
+	margin-bottom: 0;
+  }
+  
+  .contact-info i {
+	margin-right: 10px;
+	font-size: 20px;
+	color: #3b5998;
+  }
 	</style>
-	<header>
-        <table>
-            <thead>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Age</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Kaan</td>
-                    <td>İpek</td>
-                    <td>22</td>
-                </tr>
-                <tr>
-                    <td>Abdulsamet</td>
-                    <td>Aktaş</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>Abdullah</td>
-                    <td>Bal</td>
-                    <td>30</td>
-                </tr>
-            </tbody>
-        </table>
-		<h1>Kaan İpek</h1>
-		<h2>The Sea Calls Us Home</h2>
-        <img src="image.jpg" alt="Profile Picture">
-
-	</header>
-
-	<main>
-		<section>
-			<h3>Contact Information</h3>
-			<ul>
-				<li><a href="mailto:kaanipek@marun.edu.tr">Email: kaanipek@marun.edu.tr</a></li>
-				<li>Phone: +90 5454424681</li>
-				<li><a href="https://github.com/KaanIpek">GitHub: https://github.com/KaanIpek</a></li>
-				<li><a href="https://www.linkedin.com/in/kaan-ipek-a24729210/">Linkedin: https://www.linkedin.com/in/kaan-ipek-a24729210/</li>
-	
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>My CV</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul>
+					<li><a href="#about">About</a></li>
+					<li><a href="#education">Education</a></li>
+					<li><a href="#skills">Skills</a></li>
+					<li><a href="#experience">Experience</a></li>
+					<li><a href="#contact">Contact</a></li>
 				</ul>
-		</section>
-
-		<section>
-			<h3>Education</h3>
-			<table>
-				<thead>
-					<tr>
-						<th>Bachelor's Degree in Computer Science</th>
-						<th>Marmara University</th>
-						<th>2019 - 2023</th>
-					</tr>
-				</thead>
-			</table>
-            <h3>Skills</h3>
-			<table>
-				<thead>
-					<tr>
-						<th>Programming languages: Python, Java</th>
-						<th>Web development(Soon I hope): HTML, Css, JS</th>
-						
-					</tr>
-				</thead>
-			</table>
-            <h3>Experience</h3>
-			<table>
-				<thead>
-					<tr>
-						<th>Machine Learning and Deep Learning Researcher, The Scientific and Technological Research Council of Turkey(TUBITAK) [ 14/08/2021 – 15/09/2022 ]</th>
-						<th>Perception & Prediction Intern, Adastec [ 27/06/2022 – 19/09/2022 ]</th>
-						<th>Project Manager & Data Scientist, HelloWorld [ 20/08/2022 – 05/10/2022 ]</th>
-						<th>Ottobo Robotics, Robotics Software Engineer Intern [ 05/10/2022 - 25/12/2022]</th>
-						<th>Data scientist, Macellan Bilişim [ 25/12/2022 – Current ]  </th>
-
-
-
-						
-					</tr>
-				</thead>
-			</table>
-		</section>
-
+			</nav>
+			<h1>Kaan İpek</h1>
+			<h2>The Sea Calls Us Home</h2>
+			<img src="image.jpg" alt="Profile Picture">
+		</header>
 	
-	</main>
-</body>
-</html>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				<p>Hi, I'm Kaan İpek, a computer science student at Marmara University. I'm interested in machine learning and deep learning, and I have experience in both research and industry. In my free time, I enjoy playing video games and reading.</p>
+			</section>
+	
+			<section id="education">
+				<h3>Education</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>Bachelor's Degree in Computer Science</th>
+							<th>Marmara University</th>
+							<th>2019 - 2023</th>
+						</tr>
+					</thead>
+				</table>
+			</section>
+	
+			<section id="skills">
+				<h3>Skills</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>Programming languages: Python, Java</th>
+							<th>Web development(Soon I hope): HTML, Css, JS</th>
+						</tr>
+					</thead>
+				</table>
+			</section>
+	
+			<section id="experience">
+				<h3>Experience</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>Machine Learning and Deep Learning Researcher, The Scientific and Technological Research Council of Turkey(TUBITAK) [ 14/08/2021 – 15/09/2022 ]</th>
+							<th>Perception & Prediction Intern, Adastec [ 27/06/2022 – 19/09/2022 ]</th>
+							<th>Project Manager & Data Scientist, HelloWorld [ 20/08/2022 – 05/10/2022 ]</th>
+							<th>Ottobo Robotics, Robotics Software Engineer Intern [ 05/10/2022 - 25/12/2022]</th>
+							<th>Data scientist, Macellan Bilişim [ 25/12/2022 – Current ]</th>
+						</tr>
+					</thead>
+				</table>
+			</section>
+	
+			<section id="contact">
+				<h3>Contact Information</h3>
+				<ul>
+					<li><a href="mailto:kaanipek@marun.edu.tr">Email: kaanipek@marun.edu.tr</a></li>
+					<li>Phone: +90 5454424681</li>
+					<li><a href="https://github.com/KaanIpek">GitHub: https://github.com/KaanIpek</a></li>
+					<li><a href="https://www.linkedin.com/in/kaan-ipek-a24729210/">Linkedin: https://www.linkedin.com/in/kaan-ipek-a24729210/</li>
+		
+					</ul>
+				</section>
+			</main>
+		
+			<footer>
+				<div class="container">
+				  <div class="row">
+					<div class="col-md-4">
+					  <h4>About Me</h4>
+					  <p>I am a machine learning and deep learning researcher with experience in data analysis and software development. I have worked on several projects in the field of computer vision, natural language processing, and predictive modeling.</p>
+					</div>
+					<div class="col-md-4">
+					  <h4>Contact Information</h4>
+					  <ul class="contact-info">
+						<li><i class="fa fa-envelope"></i> <a href="mailto:kaanipek@marun.edu.tr">kaanipek@marun.edu.tr</a></li>
+						<li><i class="fa fa-phone"></i> +90 5454424681</li>
+						<li><i class="fa fa-map-marker"></i> Istanbul, Turkey</li>
+					  </ul>
+					</div>
+					<div class="col-md-4">
+					  <h4>Follow Me</h4>
+					  <ul class="social-icons">
+						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+						<li><a href="#"><i class="fa fa-github"></i></a></li>
+					  </ul>
+					</div>
+				  </div>
+				</div>
+			  </footer>
+		
+		</body>
+		</html>
+
+
