@@ -144,28 +144,32 @@
 	color: #3b5998;
   }
   .centered {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    padding: 20px;
+
 	max-width: 1200px;
 	margin: 0 auto;
-	flex-direction: column;
-	align-items: left;
-	border: 1px solid #ccc;
-	padding: 20px;
-	display: flex;
-    flex-wrap: wrap;
+
 	
   }
-  
-  .centered img {
-	width: 40%;
-	display: inline-block;
-	margin-bottom: 20px;
-	
+
+  .image-container {
+    width: 50%;
+    padding: 10px;
+  }
+  .image-container2{
+    width: 50%;
+    padding: 10px;
+	margin-bottom: 110px;
   }
   
-  .centered p {
-	
-	width: 40%;
-	margin-bottom: 20px;
+
+  img {
+    width: 50%;
   }
 	</style>
 	<!DOCTYPE html>
@@ -250,11 +254,17 @@
 				</section>
 			</main>
 			<div class="centered">
-				<img src="Feanor.jpeg" alt="Feanor">
+				<div class="image-container">
+				  <img src="Feanor.jpeg" alt="Feanor">
 				<p>Ñoldor'un gelişini öğrenen Morgoth, ordularını Angband kalesinden çağırdı ve Fëanor'un Mithrim'deki kampına saldırdı. Bu yüzleşmeye Güneş ve Ay henüz yaratılmadığı için Yıldızların altındaki Savaş veya Dagor-nuin-Giliath adı verildi. Ñoldor savaşı kolayca kazandı ve Morgoth'un ordularını imha etti. Fakat zaferden heyecanlanan ve gurur duyan Fëanor, ordusunun çok ilerisinde Angband'a doğru sadece küçük bir öncü ile bastırdı. Angband'a yaklaşınca Fëanor ve ekibinin çok az sayıda olduğunu gören orklar döndü ve savaşmaya başladı. Angband'a olan yakınlıklarından dolayı, hızlıca elflerin çoğunu çeviren birkaç Balrog tarafından desteklendiler. Fëanor gözüpekti ve çok fazla yara almasına rağmen uzun süre tek başına savaştı. Ancak nihayet Balrogların Lordu Gothmog tarafından yere çalındı.</p>
-				<img src="Fingolfin.jpeg" alt="Fingolfin">
-				<p>Fëanor'un ölümünden kısa bir süre sonra, en büyük oğlu Maedhros Morgoth tarafından yakalandı. Bunu öğrenen Fingolfin'in en büyük oğlu Fingon, iyi arkadaşı olduğu Maedhros'u kurtardı. Maedhros sonuç olarak krallık iddiasından feragat etti. Böylece Fingolfin, Noldor'un Yüksek Kralı oldu. Hithlum'dan, Mithrim Gölü'nün kuzey kıyılarında kadar bir alanda hüküm sürdü.</p>
-			</div>
+
+				</div>
+				<div class="image-container2">
+				  <img src="Fingolfin.jpeg" alt="Fingolfin">
+				<p class="p2">Fëanor'un ölümünden kısa bir süre sonra, en büyük oğlu Maedhros Morgoth tarafından yakalandı. Bunu öğrenen Fingolfin'in en büyük oğlu Fingon, iyi arkadaşı olduğu Maedhros'u kurtardı. Maedhros sonuç olarak krallık iddiasından feragat etti. Böylece Fingolfin, Noldor'un Yüksek Kralı oldu. Hithlum'dan, Mithrim Gölü'nün kuzey kıyılarında kadar bir alanda hüküm sürdü.</p>
+
+				</div>
+			  </div>
 			<footer>
 				<div class="container">
 				  <div class="row">
