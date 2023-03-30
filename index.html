@@ -179,6 +179,14 @@
     width: 50%;
   }
 	</style>
+	<script>
+		function generateRandomNumber() {
+			var min = 1;
+			var max = 100;
+			var random = Math.floor(Math.random() * (max - min + 1)) + min;
+			document.getElementById("result").innerHTML = "Random Number: " + random;
+		}
+	</script>
 	<!DOCTYPE html>
 	<html>
 	<head>
@@ -200,7 +208,40 @@
 			</nav>
 			<h1>Kaan İpek</h1>
 			<h2>The Sea Calls Us Home</h2>
+			<button onclick="generateRandomNumber()">BASIC JAVASCIRPT ThreeJS at the end of the page</button>
+		<p id="result"></p>
+
+		<script type="module">
+			import * as THREE from 'https://unpkg.com/three/build/three.module.js';
+
+			const scene = new THREE.Scene();
+			const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+			const renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+
+			const geometry = new THREE.BoxGeometry( 3, 1, 1 );
+			const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+			const cube = new THREE.Mesh( geometry, material );
+			scene.add( cube );
+
+			camera.position.z = 5;
+
+			function animate() {
+				requestAnimationFrame( animate );
+
+				cube.rotation.x += 0.05;
+				cube.rotation.y += 0.03;
+
+				renderer.render( scene, camera );
+			}
+
+			animate();
+		</script>
+
 			<img src="image.jpg" alt="Profile Picture">
+			
 		</header>
 	
 		<main>
