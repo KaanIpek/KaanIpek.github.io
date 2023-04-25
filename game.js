@@ -30,6 +30,7 @@ fruits.forEach(fruit => {
   fruitImages.push(img);
 });
 
+
 // generate a random fruit image
 function generateFruit() {
   const fruitIndex = Math.floor(Math.random() * fruits.length);
