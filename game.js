@@ -1,7 +1,8 @@
-// get references to HTML elements
 const scoreDisplay = document.querySelector('#score');
 const messageDisplay = document.querySelector('#message');
 const gameCanvas = document.querySelector('#gameCanvas');
+const startButton = document.querySelector('#startButton');
+const resetButton = document.querySelector('#resetButton');
 const ctx = gameCanvas.getContext('2d');
 
 // set up game variables
@@ -19,12 +20,13 @@ const player = {
   speed: 10
 };
 const keys = {};
-player.img.src = 'player.png';
+let gameOver = false;
+player.img.src = 'images/player.png';
 
 // load fruit images
 fruits.forEach(fruit => {
   const img = new Image();
-  img.src = `${fruit}.png`;
+  img.src = `images/${fruit}.png`;
   fruitImages.push(img);
 });
 
@@ -42,17 +44,19 @@ function generateFruit() {
 
 // collect a fruit
 function collectFruit(fruit) {
-  const index = fruitsOnScreen.indexOf(fruit);
-  if (index !== -1) {
-    fruitsOnScreen.splice(index, 1);
-    score++;
-    scoreDisplay.textContent = `Score: ${score}`;
-    if (score >= maxFruits) {
-      messageDisplay.textContent = 'You Win!';
+    const index = fruitsOnScreen.indexOf(fruit);
+    if (index !== -1) {
+      fruitsOnScreen.splice(index, 1);
+      score++;
+      scoreDisplay.textContent = `Score: ${score}`;
+      if (score >= maxFruits) {
+        console.log("You Win!"); // check if this line is being called
+        messageDisplay.textContent = 'You Win!';
+        stopGame();
+      }
     }
   }
-}
-
+  
 // handle arrow key presses
 function handleKeyDown(event) {
   keys[event.code] = true;
@@ -114,28 +118,64 @@ function update() {
     ctx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
   
     // draw player
-    ctx.fillStyle = 'red';
-    ctx.fillRect(player.x, player.y, player.width, player.height);
+    ctx.drawImage(player.img, player.x, player.y, player.width, player.height);
   
     // draw fruits
     fruitsOnScreen.forEach(fruit => {
       ctx.drawImage(fruit.img, fruit.x, fruit.y);
     });
+  
+    // check if player has won
+    if (score >= maxFruits) {
+      messageDisplay.textContent = 'You Win!';
+      stopGame();
+      return; // add return statement to exit the function when the game is stopped
+    }
   }
   
+  // stop game
+  function stopGame() {
+    clearInterval(gameLoop);
+    document.removeEventListener('keydown', handleKeyDown);
+    document.removeEventListener('keyup', handleKeyUp);
+    gameCanvas.removeEventListener('click', handleClick);
+    startButton.disabled = false; // enable the start button
+    resetButton.disabled = false; // enable the reset button
+  }
+  
+  
+  
+  // reset game
+  function resetGame() {
+    stopGame();
+    score = 0;
+    fruitsOnScreen.length = 0;
+    gameOver = false;
+    scoreDisplay.textContent = `Score: ${score}`;
+    messageDisplay.textContent = '';
+    startButton.disabled = true; // disable the start button
+    resetButton.disabled = true; // disable the reset button
+  }
+  
+  
+  
   // initialize game state and start game loop
-  function init() {
+   function init() {
     // add event listeners
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('keyup', handleKeyUp);
     gameCanvas.addEventListener('click', handleClick);
+    startButton.addEventListener('click', startGame);
+  }
   
-    // start game loop
-    setInterval(() => {
+  // start game loop
+  let gameLoop = null;
+  function startGame() {
+    
+    gameLoop = setInterval(() => {
       update();
     }, 1000 / 60);
   }
-  
-// start game
-init();
-  
+
+  // start game
+  init();

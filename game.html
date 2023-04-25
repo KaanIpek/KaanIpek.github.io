@@ -1,20 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Fruit Collector Game</title>
-	<style>
-		canvas {
-			border: 1px solid black;
-		}
-	</style>
+  <meta charset="UTF-8">
+  <title>Fruit Collector Game</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #202020;
+        color: #fff;
+        padding: 20px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 9999;
+      }
+      
+      nav h1 {
+        margin: 0;
+        font-size: 1.5rem;
+      }
+      
+      nav ul {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+      }
+      
+      nav li {
+        margin-left: 20px;
+      }
+      
+      nav a {
+        text-decoration: none;
+        color: #fff;
+      }
+      
+      nav a:hover {
+        text-decoration: underline;
+      }
+  </style>
 </head>
 <body>
-	<h1>Fruit Collector Game</h1>
-	<p>Collect the fruits by clicking on them or using the arrow keys. You win when you collect 20 fruits!</p>
-	<p id="score">Score: 0</p>
-	<canvas id="gameCanvas" width="800" height="600"></canvas>
+    <nav>
+        <ul>
+            <li><a href="game.html">Game!!!!!!!!!!!!!!</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+            
+        </ul>
+    </nav>
+    <h1>.</h1>
+
+  <h1>Fruit Collector Game</h1>
+  <p>Collect the fruits by clicking on them or using the arrow keys. You win when you collect 20 fruits!</p>
+  <p id="score">Score: 0</p>
+  <canvas id="gameCanvas" width="800" height="600"></canvas>
   <button id="startButton">Start Game</button>
-	<script src="game.js"></script>
+  <button id="stopButton">Stop Game</button>
+  <button id="resetButton">Reset Game</button>
+  <p id="message" style="font-size: 50px;"></p>
+  <script src="game.js"></script>
 </body>
 </html>
