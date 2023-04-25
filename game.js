@@ -179,3 +179,4 @@ function update() {
 
   // start game
   init();
+
