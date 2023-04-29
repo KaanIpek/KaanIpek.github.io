@@ -9,7 +9,7 @@ const ctx = gameCanvas.getContext('2d');
 let score = 0;
 const maxFruits = 20;
 const fruitsOnScreen = [];
-const fruits = ['apple', 'banana', 'orange', 'lemon'];
+const fruits = ['balrog', 'nazgul', 'witchking', 'sauron'];
 const fruitImages = [];
 const player = {
   img: new Image(),

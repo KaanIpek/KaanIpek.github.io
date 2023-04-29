@@ -48,24 +48,27 @@
   </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="game.html">Game!!!!!!!!!!!!!!</a></li>
-            <li><a href="index.html">Home</a></li>
-            
-            
-        </ul>
-    </nav>
-    <h1>.</h1>
-
-  <h1>Fruit Collector Game</h1>
-  <p>Collect the fruits by clicking on them or using the arrow keys. You win when you collect 20 fruits!    (arrow keys not working as expected, click fruits for better usage) and could fix the issue with reset button.</p>
-  <p id="score">Score: 0</p>
-  <canvas id="gameCanvas" width="800" height="600"></canvas>
-  <button id="startButton">Start Game</button>
-  <button id="stopButton">Stop Game</button>
-  <button id="resetButton">Reset Game</button>
-  <p id="message" style="font-size: 50px;"></p>
-  <script src="game.js"></script>
+  <h1>Destroy the One Ring Game</h1>
+  <p>Defeat all the primal enemies for Frodo by clicking on them or using the arrow keys. You win when you defeat 20 enemies!    (arrow keys not working as expected, click fruits for better usage) and could fix the issue with reset button.</p>
+  <table>
+    <tr>
+      <td>
+        <p id="score">Score: 0      </p> 
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+         
+      </td>
+      <td>
+        <p id="message" style="font-size: 80px; color:red"></p>
+        <button id="startButton">Start Game</button>
+        <button id="stopButton">Stop Game</button>
+        <button id="resetButton">Reset Game</button>
+      </td>
+    </tr>
+  </table>
+  
+  
+ 
+  
+  <script src="/game.js"></script>
 </body>
 </html>
