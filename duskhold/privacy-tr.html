@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Duskhold — Gizlilik Politikası</title>
+<link rel="alternate" hreflang="en" href="privacy.html">
+<style>
+  :root { color-scheme: light dark; }
+  body { margin: 0 auto; padding: 2.5rem 1.25rem 4rem; max-width: 44rem;
+         font: 16px/1.65 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+         color: #201b16; background: #faf6ef; }
+  @media (prefers-color-scheme: dark) { body { color: #ece5da; background: #17141b; } }
+  h1 { font-size: 1.9rem; margin: 0 0 .25rem; letter-spacing: .01em; }
+  h2 { font-size: 1.12rem; margin: 2.2rem 0 .5rem; }
+  h3 { font-size: 1rem; margin: 1.4rem 0 .3rem; }
+  .sub { opacity: .72; margin: 0 0 1rem; }
+  .lang { font-size: .9rem; margin: 0 0 2rem; }
+  ul { padding-left: 1.15rem; }
+  li { margin: .35rem 0; }
+  a { color: #8a5a1c; }
+  @media (prefers-color-scheme: dark) { a { color: #e0b063; } }
+  code { font-size: .93em; }
+  table { border-collapse: collapse; width: 100%; font-size: .93rem; }
+  th, td { text-align: left; vertical-align: top; padding: .4rem .5rem; border-bottom: 1px solid rgba(128,128,128,.35); }
+  footer { margin-top: 3rem; opacity: .7; font-size: .9rem; }
+</style>
+</head>
+<body>
+<h1>Duskhold — Gizlilik Politikası</h1>
+<p class="sub">Son güncelleme 5 Eylül 2026 · Kaan İpek tarafından yayımlanan Duskhold mobil oyunu (iOS ve Android) için geçerlidir</p>
+<p class="lang"><a href="privacy.html" hreflang="en" lang="en">English</a> · <a href="delete-account-tr.html">Hesabını sil</a> · <a href="terms-tr.html">Topluluk kuralları</a></p>
+
+<p>Duskhold; isteğe bağlı iki kişilik ortak oyun modu ve isteğe bağlı bir yoldaş listesi olan bir
+krallık savunma oyunudur. <strong>Oynamak için hesap açmak zorunda değilsin.</strong> Tek oyunculu
+mod, kodla ortak oyun, ödüllü reklamlar ve satın almalar giriş yapmadan çalışır. Giriş tek bir
+amaç için vardır: yoldaşların seni adınla bulup diyarlarına çağırabilsin diye.</p>
+
+<h2>Verinden kim sorumlu (KVKK aydınlatma metni)</h2>
+<p>6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında <strong>veri sorumlusu</strong>,
+Türkiye'de yerleşik bağımsız geliştirici <strong>Kaan İpek</strong>'tir (RLD Games adıyla
+yayımlar). İletişim: <a href="mailto:rld.ranger07@gmail.com">rld.ranger07@gmail.com</a>.
+Kişisel verilerin hangi amaçla, hangi hukuki sebeple işlendiği, kimlere aktarıldığı ve
+KVKK'nın 11. maddesindeki hakların bu sayfada açıklanmıştır; bu haklarını yukarıdaki e-posta
+adresine yazarak kullanabilirsin.</p>
+
+<h2>Cihazında kalanlar</h2>
+<p>Sefer ilerlemen, ayarların, ekipmanın, araştırmaların, başarımların ve mücevherlerin oyun
+tarafından cihazında saklanır. <strong>Bize yüklenmez</strong>; giriş yapsan bile cihazlar
+arasında kopyalanmaz. Uygulamayı silmek bunları siler; Ayarlar → İLERLEMEYİ SİL, hesabına
+dokunmadan bunları temizler.</p>
+
+<h2>Cihazından çıkanlar ve ne zaman çıktığı</h2>
+
+<h3>1. Misafir oyuncu (Unity Authentication)</h3>
+<p>İlk kez bir ortak oyun oturumu kurduğunda veya birine katıldığında, MÜTTEFİKLER ekranını
+açtığında ya da Ayarlar → GİZLİLİK &amp; HESAP'a girdiğinde oyun Unity Authentication'a anonim
+olarak giriş yapar. Unity rastgele bir <strong>oyuncu kimliği</strong> (28 karakter; Hesap
+panelinde KOPYALA düğmesiyle görünür) ve yoldaşları ilk kullandığında sayısal etiketli bir
+<strong>oyuncu adı</strong> (örneğin <code>Muhafiz#1234</code>) verir. Sen giriş yapmayı
+seçmedikçe bunlar kimliğinle bağlantılı değildir. Oyuncu kimliği, aynı misafir oyuncunun bir
+sonraki açılışta geri gelmesi için cihazında saklanır.</p>
+
+<h3>2. Apple ile Giriş (iOS, isteğe bağlı)</h3>
+<p><em>Apple ile Giriş Yap</em>'a dokunursan Apple'ın sistem penceresi iznini ister ve Unity
+Authentication'a, Apple Hesabını mevcut misafir oyuncuna bağlayan bir kimlik belirteci verir
+(ilerlemene dokunulmaz). Bize ulaşanlar:</p>
+<ul>
+  <li><strong>Adın</strong> — yalnızca ilk girişte ve yalnızca izin verirsen. Oyun bunu bir kez,
+      kaydetmeden önce değiştirebileceğin bir oyuncu adı önermek için kullanır. Ad başka hiçbir
+      yerde saklanmaz.</li>
+  <li><strong>E-posta adresi alınmaz.</strong> Oyun Apple'dan e-posta istemez; Apple'ın
+      <em>E-postamı Gizle</em> aktarımını dilediğin gibi kullanabilirsin. Hiçbir e-posta adresi
+      saklamıyoruz.</li>
+  <li>Unity Authentication, seni yeniden tanıyabilmek için Apple Hesabına ait sabit kullanıcı
+      tanımlayıcısını tutar. Bu bağı istediğin zaman Hesap panelindeki BAĞI KOPAR ile ve iOS
+      Ayarlar → adın → Apple ile Giriş Yap altından kaldırabilirsin.</li>
+</ul>
+
+<h3>3. Google Play Games girişi (Android, isteğe bağlı)</h3>
+<p>Android'de aynı bağ Google Play Games Services üzerinden kurulur. Google, Unity
+Authentication'a tek kullanımlık bir kod verir; Unity, oyuna özel Play Games oyuncu kimliğini
+tutar. Oyun, Play Games görünen adını oyuncu adı olarak önerir. E-posta adresi alınmaz ve
+saklanmaz. BAĞI KOPAR bağı kaldırır; Google tarafı cihazındaki Play Games ayarlarından
+yönetilir.</p>
+
+<h3>4. Yoldaşlar (Unity Friends)</h3>
+<p>Yoldaş listesini kullandığında Unity Friends, oyuncu kimliğin için şunları saklar:</p>
+<ul>
+  <li>oyuncu adın ve etiketin;</li>
+  <li>yoldaşlık ilişkilerin, bekleyen istekler (gönderdiğin ve aldığın) ve engellediğin oyuncular;</li>
+  <li><strong>durumun</strong>: çevrimiçi, meşgul ya da uzakta olduğun ve oyunun kendisinin
+      belirlediği kısa, sabit bir durum — <em>menüde</em>, <em>savaşta</em> ya da altı harfli
+      ortak oyun kodu ve kurduğun haritayla birlikte <em>diyar kuruyor</em>. Bu hiçbir zaman
+      serbest metin değildir ve yalnızca yoldaşlarına görünür;</li>
+  <li><strong>davetler</strong>: bir yoldaşını davet ettiğinde oyun, o yoldaşa sabit bir şablon
+      (oyuncu adın, ortak oyun kodu, harita) gönderir. Davetler yalnızca yoldaş çevrimiçiyken
+      iletilir, on dakika sonra geçersiz olur ve sunucuda saklanmaz. Duskhold'da sohbet ya da
+      serbest mesajlaşma yoktur.</li>
+</ul>
+
+<h3>5. Ortak oyun oturumları (Unity Relay)</h3>
+<p>Ortak oyun trafiği, oturum süresince geldiği IP adresini gören Unity Relay üzerinden geçer.
+Relay oyununu saklamaz.</p>
+
+<h3>6. Bildirimler (Unity Cloud Save)</h3>
+<p>Bir oyuncuyu BİLDİR'diğinde oyun, bildirimi — bildirilen oyuncunun kimliği ve adı, seçtiğin
+neden, nerede olduğu, zamanı, isteğe bağlı yazdığın satır ve kendi oyuncu kimliğin — kendi oyuncu
+kimliğin altındaki Cloud Save'e yazar; biz oradan okuruz. Cloud Save'e ulaşılamazsa oyun aynı bilgileri bize adreslenmiş olarak posta uygulamanda
+açar. Bildirimlerin nasıl ele alındığı <a href="terms-tr.html">topluluk kurallarında</a> yazar.</p>
+
+<h3>7. Reklam (Google AdMob)</h3>
+<p>Oyun, oyun içi ödül karşılığında izlemeyi seçtiğin isteğe bağlı ödüllü video reklamlar
+gösterir. Google AdMob, reklam seçmek ve ölçmek için bir reklam tanımlayıcısı, IP adresi, kaba
+cihaz ve uygulama bilgisi ve etkileşim verisi alır. Apple'ın SKAdNetwork'ü de yükleme atıf
+verisi alabilir. Duskhold, Uygulama İzleme Şeffaflığı izni istemez, kişiselleştirilmemiş reklam
+talep eder ve seni başka şirketlerin uygulama ve sitelerinde izlemez. Bkz.
+<a href="https://policies.google.com/technologies/partner-sites?hl=tr">Google'ın hizmetlerini
+kullanan site ve uygulamalardan gelen bilgileri nasıl kullandığı</a>.</p>
+
+<h3>8. Bu hizmetlerin gördüğü teknik veriler</h3>
+<p>Her çevrimiçi hizmet gibi Unity Gaming Services ve Google, oyun onlarla konuştuğunda IP
+adresini, cihaz ve uygulama tanımlayıcılarını ve temel tanılama verilerini alır. Unity,
+<a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">Unity Oyun Oyuncusu ve
+Uygulama Kullanıcısı Gizlilik Politikası</a> uyarınca veri işleyenimizdir; Google ise
+<a href="https://policies.google.com/privacy?hl=tr">Google Gizlilik Politikası</a> uyarınca.
+Sunucuları ülkenin dışında olabilir (yurt dışına aktarım).</p>
+
+<h2>Özet tablo</h2>
+<table>
+<tr><th>Veri</th><th>Ne zaman</th><th>Nerede tutulur</th><th>Neden</th></tr>
+<tr><td>Oyuncu kimliği, oyuncu adı ve etiketi</td><td>Ortak oyun, yoldaşlar, hesap</td><td>Unity Authentication</td><td>Aynı oyuncuyu tanımak; yoldaşların seni bulması</td></tr>
+<tr><td>Apple / Play Games kullanıcı tanımlayıcısı</td><td>Yalnızca giriş yaptıktan sonra</td><td>Unity Authentication</td><td>Hesabını aynı misafir oyuncuya bağlamak</td></tr>
+<tr><td>Apple'dan ad / Play Games görünen adı</td><td>Yalnızca ilk giriş</td><td>Cihazda bir kez, ad önermek için kullanılır</td><td>Ad önermek</td></tr>
+<tr><td>Yoldaş listesi, istekler, engeller, durum</td><td>Yoldaşlar</td><td>Unity Friends</td><td>Yoldaşlar, davetler, engelleme</td></tr>
+<tr><td>Davet (ad, kod, harita)</td><td>Bir yoldaşı davet ettiğinde</td><td>Anlık iletilir, saklanmaz; 10 dakikada geçersiz olur</td><td>Ortak oyun diyarına katılmak</td></tr>
+<tr><td>Bildirimler</td><td>BİLDİR'e dokunduğunda</td><td>Unity Cloud Save (ya da e-posta)</td><td>Moderasyon</td></tr>
+<tr><td>IP adresi, cihaz ve uygulama tanımlayıcıları, tanılama</td><td>Her çevrimiçi özellik</td><td>Unity, Google (geçici)</td><td>Hizmeti çalıştırmak, güvenlik</td></tr>
+<tr><td>Reklam tanımlayıcısı, reklam etkileşim verisi</td><td>Ödüllü reklam izlediğinde</td><td>Google AdMob</td><td>Reklam sunmak ve ölçmek (kişiselleştirilmemiş)</td></tr>
+</table>
+
+<h2>Ne kadar süre tutuyoruz</h2>
+<ul>
+  <li>Misafir ya da bağlı oyuncun, adın, yoldaşların, isteklerin ve engellerin: <strong>hesabını
+      silene kadar</strong> (oyun içinden ya da aşağıdaki taleple).</li>
+  <li>Durum her değiştiğinde üzerine yazılır ve oyunu kapattığında çevrimdışı olur. Davetler on
+      dakika sonra yok olur. Relay oturum verisi oturumla biter.</li>
+  <li>Bildirimler: ele alınana kadar, en fazla 12 ay.</li>
+  <li>Reklam verisi: Google'ın saklama politikalarına göre.</li>
+  <li>Cihazındaki veri: uygulamayı silene ya da İLERLEMEYİ SİL'i kullanana kadar.</li>
+</ul>
+
+<h2>Hesabını silmek</h2>
+<p>Oyunda: <strong>Ayarlar → GİZLİLİK &amp; HESAP → HESABI SİL</strong>, sonra onaylamak için
+yeniden dokun. Bu; oyuncunu, adını, yoldaşlarını, isteklerini, engellerini ve durumunu Unity'den
+kaldırır, Apple ya da Play Games bağını çözer ve cihazın oturumunu kapatır. Misafir oyuncular için
+de çalışır. Cihazdaki ilerlemeye dokunulmaz.</p>
+<p>Uygulama olmadan ya da bir şey ters gittiyse: <a href="delete-account-tr.html">Duskhold hesabını
+sil</a> sayfasındaki adımları izle. Hesap panelindeki 28 karakterlik oyuncu kimliğine ihtiyacın
+olacak; yalnızca ad seni tanımlamaya yetmez.</p>
+<p>Uygulamayı kaldırmak misafir hesabını silmez ve geri alınamaz: hiç giriş yapılmamış bir
+misafir oyuncu yeni bir kurulumda kurtarılamaz; geriye kalan tek kayıt, arkasında kişisel veri
+olmayan rastgele bir kimliktir.</p>
+
+<h2>Seçeneklerin</h2>
+<ul>
+  <li>Hesapsız oyna. Yoldaş listesi dışındaki her şey giriş yapmadan çalışır.</li>
+  <li>Misafir oyuncuyu koruyarak Apple Hesabının ya da Play Games hesabının bağını KALDIR.</li>
+  <li>Oyuncu adını Hesap panelinden değiştir; adlar kaydedilmeden önce cihazında
+      <a href="terms-tr.html">topluluk kurallarına</a> göre denetlenir.</li>
+  <li>Herhangi bir oyuncuyu satırından ENGELLE ve BİLDİR.</li>
+  <li>Avrupa Ekonomik Alanı, Birleşik Krallık ve İsviçre'de oyun, kişiselleştirilmiş reklamdan
+      önce Google'ın onay formunu gösterir ve orada yaptığın seçime uyar; Ayarlar → GİZLİLİK
+      &amp; HESAP → REKLAM GİZLİLİĞİ, geçerli olduğu yerde formu yeniden açar.</li>
+  <li>Reklam kişiselleştirmesini cihaz ayarlarından sınırla (iOS: Ayarlar → Gizlilik ve Güvenlik
+      → Apple Reklamları; Android: Ayarlar → Google → Reklamlar).</li>
+</ul>
+
+<h2>Hukuki sebep</h2>
+<p>Hesap ve yoldaş verilerini, bu özellikleri sen istediğin için (sözleşmenin ifası; KVKK md. 5/2-c);
+teknik ve güvenlik verilerini, çalışan ve güvenli bir hizmet sunma meşru menfaatimizle (md. 5/2-f);
+reklam verilerini ise hukukun gerektirdiği yerde açık rızanla işliyoruz. Hakkında ne tuttuğumuzu
+sormak, düzeltilmesini ya da silinmesini istemek için istediğin zaman yazabilirsin — en hızlı yol
+yukarıdaki oyun içi silmedir.</p>
+
+<h2>Çocuklar</h2>
+<p>Duskhold 13 yaş ve üzeri oyuncular içindir. 13 yaş altı çocuklara yönelik değildir ve onlardan
+bilerek kişisel bilgi toplamaz. 13 yaş altı bir çocuğun oyuncu oluşturduğunu düşünüyorsan bize yaz;
+sileriz.</p>
+
+<h2>Değişiklikler</h2>
+<p>Bu politika değişirse yeni sürümü, yukarıda yeni bir tarihle bu sayfada görünür. Türkçe ve
+İngilizce sürümler aynı şeyi söyler; farklılık olursa Türkiye'de Türkçe metin esas alınır.</p>
+
+<h2>İletişim</h2>
+<p>Bu politika ya da verin hakkında sorular: <a href="mailto:rld.ranger07@gmail.com">rld.ranger07@gmail.com</a></p>
+
+<footer>Duskhold © 2026 Kaan İpek. Üçüncü taraf görsel ve ses kaynakçası oyunun içinde yer alır.</footer>
+</body>
+</html>

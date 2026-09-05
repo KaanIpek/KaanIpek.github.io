@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Duskhold — Privacy Policy</title>
+<link rel="alternate" hreflang="tr" href="privacy-tr.html">
+<style>
+  :root { color-scheme: light dark; }
+  body { margin: 0 auto; padding: 2.5rem 1.25rem 4rem; max-width: 44rem;
+         font: 16px/1.65 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+         color: #201b16; background: #faf6ef; }
+  @media (prefers-color-scheme: dark) { body { color: #ece5da; background: #17141b; } }
+  h1 { font-size: 1.9rem; margin: 0 0 .25rem; letter-spacing: .01em; }
+  h2 { font-size: 1.12rem; margin: 2.2rem 0 .5rem; }
+  h3 { font-size: 1rem; margin: 1.4rem 0 .3rem; }
+  .sub { opacity: .72; margin: 0 0 1rem; }
+  .lang { font-size: .9rem; margin: 0 0 2rem; }
+  ul { padding-left: 1.15rem; }
+  li { margin: .35rem 0; }
+  a { color: #8a5a1c; }
+  @media (prefers-color-scheme: dark) { a { color: #e0b063; } }
+  code { font-size: .93em; }
+  table { border-collapse: collapse; width: 100%; font-size: .93rem; }
+  th, td { text-align: left; vertical-align: top; padding: .4rem .5rem; border-bottom: 1px solid rgba(128,128,128,.35); }
+  footer { margin-top: 3rem; opacity: .7; font-size: .9rem; }
+</style>
+</head>
+<body>
+<h1>Duskhold — Privacy Policy</h1>
+<p class="sub">Last updated 5 September 2026 · applies to the Duskhold mobile game by Kaan İpek (iOS and Android)</p>
+<p class="lang"><a href="privacy-tr.html" hreflang="tr" lang="tr">Türkçe</a> · <a href="delete-account.html">Delete your account</a> · <a href="terms.html">Community rules</a></p>
+
+<p>Duskhold is a kingdom-defence game with an optional two-player co-op mode and an optional
+allies list. <strong>You never have to create an account to play.</strong> Single player, co-op by
+code, rewarded ads and purchases all work without signing in. Signing in exists for one reason:
+so that allies can find you by name and invite you into their realm.</p>
+
+<h2>Who is responsible for your data</h2>
+<p>The data controller is <strong>Kaan İpek</strong>, an individual developer based in Türkiye,
+publishing as RLD Games. Contact: <a href="mailto:rld.ranger07@gmail.com">rld.ranger07@gmail.com</a>.
+The Turkish version of this page contains the disclosure required by the Turkish Personal Data
+Protection Law (KVKK).</p>
+
+<h2>What stays on your device</h2>
+<p>Your campaign progress, settings, equipment, research, achievements and gems are stored on
+your device by the game. <strong>They are not uploaded to us</strong> and they are not copied
+between devices, even when you sign in. Deleting the app deletes them; Settings → RESET PROGRESS
+erases them without touching your account.</p>
+
+<h2>What leaves your device, and when</h2>
+
+<h3>1. A guest player (Unity Authentication)</h3>
+<p>The first time you host or join a co-op session, open ALLIES, or open Settings → PRIVACY &amp;
+ACCOUNT, the game signs in anonymously with Unity Authentication. Unity issues a random
+<strong>player ID</strong> (28 characters, shown in the Account panel with a COPY button) and,
+when you first use allies, a <strong>player name</strong> with a numeric tag (for example
+<code>Warden#1234</code>). Neither is tied to your identity unless you choose to sign in.
+The player ID is stored on your device so the same guest player comes back next time.</p>
+
+<h3>2. Sign in with Apple (iOS, optional)</h3>
+<p>If you tap <em>Sign in with Apple</em>, Apple's system sheet asks for your permission and hands
+Unity Authentication an identity token that links your Apple ID to your existing guest player
+(your progress is not touched). What we receive:</p>
+<ul>
+  <li><strong>Your name</strong> — only on the very first sign-in, and only if you allow it. The
+      game uses it once, to suggest a player name that you can change before it is saved. The
+      name is not stored anywhere else.</li>
+  <li><strong>No e-mail address.</strong> The game never asks Apple for it, and you may use
+      Apple's <em>Hide My Email</em> relay freely. We store no e-mail address.</li>
+  <li>Unity Authentication keeps Apple's stable user identifier for your Apple ID so it can
+      recognise you again. You can remove this link at any time with UNLINK in the Account
+      panel, and in iOS Settings → your name → Sign in with Apple.</li>
+</ul>
+
+<h3>3. Google Play Games sign-in (Android, optional)</h3>
+<p>On Android the same link is made through Google Play Games Services. Google hands Unity
+Authentication a one-time code; Unity keeps your game-scoped Play Games player ID. The game
+suggests your Play Games display name as a player name. No e-mail address is received or
+stored. UNLINK removes the link; Play Games settings on your device manage the Google side.</p>
+
+<h3>4. Allies (Unity Friends)</h3>
+<p>When you use the allies list, Unity Friends stores, for your player ID:</p>
+<ul>
+  <li>your player name and tag;</li>
+  <li>your ally relationships, pending requests (sent and received) and the players you have blocked;</li>
+  <li>your <strong>presence</strong>: whether you are online, busy or away, and a short fixed
+      status the game sets itself — <em>in the menu</em>, <em>in battle</em>, or
+      <em>hosting</em> together with the six-letter co-op code and the map you are hosting. This
+      is never free text and is visible to your allies only;</li>
+  <li><strong>invites</strong>: when you invite an ally, the game sends a fixed template (your
+      player name, the co-op code, the map) to that ally. Invites are delivered only while the
+      ally is online, expire after ten minutes and are not stored on a server. There is no chat
+      and no free-text messaging in Duskhold.</li>
+</ul>
+
+<h3>5. Co-op sessions (Unity Relay)</h3>
+<p>Co-op traffic passes through Unity Relay, which sees the IP address it comes from for the
+length of the session. Relay does not store your gameplay.</p>
+
+<h3>6. Reports (Unity Cloud Save)</h3>
+<p>If you REPORT a player, the game writes the report — the reported player's ID and name, the
+reason you chose, where it happened, the time, the optional line you typed and your own player
+ID — into Cloud Save under your own player ID, where we read it. If Cloud Save cannot be reached, the game instead opens your mail app with the
+same details addressed to us. See the <a href="terms.html">community rules</a> for how reports
+are handled.</p>
+
+<h3>7. Advertising (Google AdMob)</h3>
+<p>The game shows optional rewarded video ads that you choose to watch in exchange for an in-game
+reward. Google AdMob receives an advertising identifier, IP address, coarse device and app
+information, and interaction data in order to select and measure ads. Apple's SKAdNetwork may
+also receive install-attribution data. Duskhold does not ask for App Tracking Transparency
+permission, requests non-personalised ads, and does not track you across other companies' apps
+and websites. See <a href="https://policies.google.com/technologies/partner-sites">how Google
+uses information from sites or apps that use its services</a>.</p>
+
+<h3>8. Technical data seen by these services</h3>
+<p>Like any online service, Unity Gaming Services and Google receive your IP address, device
+and app identifiers and basic diagnostic data when the game talks to them. Unity acts as our
+processor under
+<a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">Unity's Game Player and
+App User Privacy Policy</a>; Google under
+<a href="https://policies.google.com/privacy">Google's Privacy Policy</a>. Their servers may be
+outside your country.</p>
+
+<h2>Summary table</h2>
+<table>
+<tr><th>Data</th><th>When</th><th>Where it is kept</th><th>Why</th></tr>
+<tr><td>Player ID, player name and tag</td><td>Co-op, allies, account</td><td>Unity Authentication</td><td>Recognise the same player; let allies find you</td></tr>
+<tr><td>Apple / Play Games user identifier</td><td>Only after you sign in</td><td>Unity Authentication</td><td>Link your account to the same guest player</td></tr>
+<tr><td>Name from Apple / display name from Play Games</td><td>First sign-in only</td><td>Used once on the device to suggest a player name</td><td>Suggest a name</td></tr>
+<tr><td>Ally list, requests, blocks, presence</td><td>Allies</td><td>Unity Friends</td><td>Allies, invites, blocking</td></tr>
+<tr><td>Invite (name, code, map)</td><td>When you invite an ally</td><td>Delivered live, not stored; expires in 10 minutes</td><td>Join a co-op realm</td></tr>
+<tr><td>Reports</td><td>When you REPORT</td><td>Unity Cloud Save (or e-mail)</td><td>Moderation</td></tr>
+<tr><td>IP address, device and app identifiers, diagnostics</td><td>Any online feature</td><td>Unity, Google (transient)</td><td>Run the service, security</td></tr>
+<tr><td>Advertising identifier, ad interaction data</td><td>When you watch a rewarded ad</td><td>Google AdMob</td><td>Serve and measure ads (non-personalised)</td></tr>
+</table>
+
+<h2>How long we keep it</h2>
+<ul>
+  <li>Your guest or linked player, name, allies, requests and blocks: <strong>until you delete
+      your account</strong> (in the game or by request, below).</li>
+  <li>Presence is overwritten every time it changes and goes offline when you close the game.
+      Invites vanish after ten minutes. Relay session data ends with the session.</li>
+  <li>Reports: until handled, and at most 12 months.</li>
+  <li>Advertising data: according to Google's retention policies.</li>
+  <li>Data on your device: until you delete the app or use RESET PROGRESS.</li>
+</ul>
+
+<h2>Deleting your account</h2>
+<p>In the game: <strong>Settings → PRIVACY &amp; ACCOUNT → DELETE ACCOUNT</strong>, then tap
+again to confirm. This removes your player, name, allies, requests, blocks and presence from
+Unity, unlinks Apple or Play Games, and signs the device out. It works for guest players too.
+Progress on the device is not touched.</p>
+<p>Without the app, or if something went wrong: follow the steps on
+<a href="delete-account.html">Delete your Duskhold account</a>. You will need the 28-character
+player ID from the Account panel; a name alone is not enough to identify you.</p>
+<p>Uninstalling the app does not delete a guest account and cannot be reversed: a guest player
+that was never signed in cannot be recovered on a new install, and the only record left is a
+random ID with no personal data behind it.</p>
+
+<h2>Your choices</h2>
+<ul>
+  <li>Play without an account. Everything except the allies list works signed out.</li>
+  <li>UNLINK your Apple ID or Play Games account while keeping the guest player.</li>
+  <li>Change your player name in the Account panel; names are checked against the
+      <a href="terms.html">community rules</a> on your device before they are saved.</li>
+  <li>BLOCK any player and REPORT any player from their row.</li>
+  <li>In the European Economic Area, the UK and Switzerland the game shows Google's consent form
+      before any personalised advertising and respects the choice you make; Settings →
+      PRIVACY &amp; ACCOUNT → AD PRIVACY reopens it where it applies.</li>
+  <li>Limit ad personalisation in your device settings (iOS: Settings → Privacy &amp; Security →
+      Apple Advertising; Android: Settings → Google → Ads).</li>
+</ul>
+
+<h2>Legal basis</h2>
+<p>We process account and allies data because you ask for those features (performance of a
+contract); technical and security data in our legitimate interest in running a working, safe
+service; and advertising data on the basis of your consent where the law requires it. You may
+ask us at any time what we hold about you, to correct it, or to delete it — the fastest way is
+the in-app deletion above.</p>
+
+<h2>Children</h2>
+<p>Duskhold is intended for players aged 13 and over. It is not directed at children under 13
+and does not knowingly collect personal information from them. If you believe a child under 13
+has created a player, write to us and we will delete it.</p>
+
+<h2>Changes</h2>
+<p>If this policy changes, the new version appears on this page with a new date above. The
+Turkish and English versions say the same thing; if they differ, the English text applies
+outside Türkiye.</p>
+
+<h2>Contact</h2>
+<p>Questions about this policy or about your data: <a href="mailto:rld.ranger07@gmail.com">rld.ranger07@gmail.com</a></p>
+
+<footer>Duskhold © 2026 Kaan İpek. Third-party art and audio credits ship inside the game.</footer>
+</body>
+</html>
