@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RLD Games — every game, every store</title>
+<meta name="description" content="Games by RLD Games: LUMEN and Shelves &amp; Streets are out now on the App Store and Google Play. Rushhouse Diner, Duskhold and Flicktail are on the way.">
+<meta name="theme-color" content="#07090f">
+<link rel="icon" href="rld.png">
+<meta property="og:title" content="RLD Games">
+<meta property="og:description" content="Small games for one thumb. Out now and coming soon.">
+<meta property="og:image" content="https://kaanipek.github.io/games/rld.png">
+<meta property="og:type" content="website">
+<style>
+  /* Viewers arrive from a Shorts overlay on a phone, so this is designed at 390px
+     first and only widens later. No web fonts, no frameworks: the whole page has to
+     paint before someone who tapped a handle out of curiosity changes their mind. */
+  :root{
+    --bg:#07090f; --surface:#10131d; --line:#1e2432;
+    --ink:#f2f5fa; --muted:#98a2b8; --faint:#67718a;
+    --lumen:#4df3ff; --shelves:#e8b54b; --rush:#ff8a4c; --dusk:#a98bff; --flick:#ffc65c;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    padding:0 20px calc(56px + env(safe-area-inset-bottom));
+    background-image:radial-gradient(120% 60% at 50% -10%, #14203a 0%, transparent 62%);
+    background-repeat:no-repeat;
+  }
+  .wrap{max-width:560px;margin:0 auto}
+
+  header{text-align:center;padding:44px 0 34px}
+  header img{width:76px;height:76px;border-radius:20px;display:block;margin:0 auto 16px}
+  h1{margin:0;font-size:26px;letter-spacing:-.4px;font-weight:650}
+  header p{margin:8px auto 0;color:var(--muted);font-size:15px;max-width:34ch}
+
+  h2{
+    margin:36px 0 14px;font-size:12px;font-weight:650;letter-spacing:1.4px;
+    text-transform:uppercase;color:var(--faint);
+  }
+
+  .game{
+    background:var(--surface);border:1px solid var(--line);border-radius:16px;
+    padding:20px;margin-bottom:14px;position:relative;overflow:hidden;
+  }
+  /* One hairline of the game's own colour is the only branding each card gets --
+     five saturated cards next to each other would read as a link farm, not a studio. */
+  .game::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--c)}
+  .game h3{margin:0;font-size:19px;font-weight:650;letter-spacing:-.2px}
+  .game .tag{display:block;margin:3px 0 10px;font-size:13px;color:var(--c);font-weight:550}
+  .game p{margin:0 0 16px;color:var(--muted);font-size:14.5px}
+
+  .stores{display:flex;flex-wrap:wrap;gap:9px}
+  a.store{
+    flex:1 1 auto;min-width:140px;text-align:center;text-decoration:none;
+    padding:12px 16px;border-radius:11px;font-size:14.5px;font-weight:600;
+    background:var(--ink);color:#0a0d14;border:1px solid transparent;
+  }
+  a.store.alt{background:transparent;color:var(--ink);border-color:var(--line)}
+  a.store:active{transform:translateY(1px)}
+
+  .soon .stores{gap:0}
+  .soon .status{
+    display:inline-block;padding:9px 14px;border-radius:9px;font-size:13.5px;
+    color:var(--faint);background:#0b0e16;border:1px dashed var(--line);
+  }
+
+  footer{margin-top:40px;text-align:center;color:var(--faint);font-size:13px}
+  footer a{color:var(--muted)}
+  @media (min-width:620px){
+    header{padding:64px 0 40px}
+    h1{font-size:31px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <img src="rld.png" alt="RLD Games" width="76" height="76">
+    <h1>RLD Games</h1>
+    <p>Small games for one thumb, made by one person.</p>
+  </header>
+
+  <h2>Out now</h2>
+
+  <article class="game" style="--c:var(--lumen)">
+    <h3>LUMEN</h3>
+    <span class="tag">flip &middot; thread &middot; flow</span>
+    <p>One tap flips gravity. Thread the neon gates, chain the motes, tip into slow
+       motion. 13 modes, 23 worlds, 12.7&nbsp;MB, and it works with no wifi.</p>
+    <div class="stores">
+      <a class="store" href="https://apps.apple.com/us/app/lumen-flip-thread-flow/id6797276640">App&nbsp;Store &mdash; free</a>
+    </div>
+  </article>
+
+  <article class="game" style="--c:var(--shelves)">
+    <h3>Shelves &amp; Streets</h3>
+    <span class="tag">stock it, then drive it</span>
+    <p>Run the shop and the van. Six wholesalers with their own prices, 20 aisles,
+       100 product lines &mdash; and every order you accept you have to deliver yourself.</p>
+    <div class="stores">
+      <a class="store" href="https://apps.apple.com/us/app/shelves-streets-delivery/id6794922446">App&nbsp;Store &mdash; free</a>
+      <a class="store alt" href="https://play.google.com/store/apps/details?id=com.rldgames.shelvesandstreets">Google&nbsp;Play &mdash; free</a>
+    </div>
+  </article>
+
+  <h2>On the way</h2>
+
+  <article class="game soon" style="--c:var(--rush)">
+    <h3>Rushhouse Diner</h3>
+    <span class="tag">the plates never stop</span>
+    <p>Cook, plate and serve a dinner rush that keeps getting faster. Build the
+       kitchen you have to survive.</p>
+    <span class="status">Submitted to the App Store &mdash; in review</span>
+  </article>
+
+  <article class="game soon" style="--c:var(--dusk)">
+    <h3>Duskhold</h3>
+    <span class="tag">build by day, hold the night</span>
+    <p>A hex kingdom you build between waves. When the sun goes down, whatever you
+       put on the map is what you have to hold with.</p>
+    <span class="status">Submitted to the App Store &mdash; in review</span>
+  </article>
+
+  <article class="game soon" style="--c:var(--flick)">
+    <h3>Flicktail</h3>
+    <span class="tag">flick two, they merge</span>
+    <p>Slingshot cocktails up a beach table. Matching drinks merge into the next one
+       up the chain, across twelve island bars.</p>
+    <span class="status">Coming soon</span>
+  </article>
+
+  <footer>
+    <p>New game videos on <a href="https://www.youtube.com/@RLDGamesStudio">YouTube&nbsp;@RLDGamesStudio</a></p>
+  </footer>
+
+</div>
+</body>
+</html>
