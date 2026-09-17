@@ -3,127 +3,233 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Shrinefall — Gizlilik Politikası</title>
+<title>Shrinefall — Hangi veri ne işe yarıyor</title>
+<meta name="description" content="Shrinefall'ın cihazında tam olarak neyi tuttuğu, ortak oyunda Unity'ye neyin gittiği ve ikisinden de nasıl kurtulacağın.">
 <link rel="alternate" hreflang="en" href="privacy.html">
 <style>
-  :root { color-scheme: light dark; }
-  body { margin: 0 auto; padding: 2.5rem 1.25rem 4rem; max-width: 44rem;
-         font: 16px/1.65 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-         color: #1b1a17; background: #f5f1e6; }
-  @media (prefers-color-scheme: dark) { body { color: #e9e2d3; background: #141318; } }
-  h1 { font-size: 1.9rem; margin: 0 0 .25rem; letter-spacing: .01em; }
-  h2 { font-size: 1.12rem; margin: 2.2rem 0 .5rem; }
-  h3 { font-size: 1rem; margin: 1.4rem 0 .3rem; }
-  .sub { opacity: .72; margin: 0 0 1rem; }
-  .lang { font-size: .9rem; margin: 0 0 2rem; }
-  ul { padding-left: 1.15rem; }
-  li { margin: .35rem 0; }
-  a { color: #8a5a1c; }
-  @media (prefers-color-scheme: dark) { a { color: #e0b063; } }
-  code { font-size: .93em; }
-  table { border-collapse: collapse; width: 100%; font-size: .93rem; }
-  th, td { text-align: left; vertical-align: top; padding: .4rem .5rem; border-bottom: 1px solid rgba(128,128,128,.35); }
-  footer { margin-top: 3rem; opacity: .7; font-size: .9rem; }
+  :root {
+    color-scheme: dark light;
+    --sf-bg: #12131a;
+    --sf-surface: #1b1d27;
+    --sf-ink: #e6e3da;
+    --sf-muted: #a5a196;
+    --sf-rule: #2c3040;
+    --sf-link: #7cc3b1;
+    --sf-mark: #d8a657;
+    --sf-gap: clamp(1rem, 4vw, 1.75rem);
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --sf-bg: #fbfaf6;
+      --sf-surface: #ffffff;
+      --sf-ink: #23242b;
+      --sf-muted: #5b5d68;
+      --sf-rule: #e3e0d7;
+      --sf-link: #10695a;
+      --sf-mark: #7d5709;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--sf-bg);
+    color: var(--sf-ink);
+    font-family: ui-sans-serif, "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+    font-size: clamp(1rem, 0.96rem + 0.25vw, 1.08rem);
+    line-height: 1.7;
+  }
+  .wrap { width: min(38rem, 100% - 2 * var(--sf-gap)); margin-inline: auto; padding-block: var(--sf-gap) 5rem; }
+  .skip { position: absolute; left: -999px; }
+  .skip:focus { left: var(--sf-gap); top: var(--sf-gap); padding: .5rem .9rem; background: var(--sf-surface); border-radius: .4rem; }
+  a { color: var(--sf-link); text-underline-offset: .18em; }
+  a:focus-visible, .skip:focus-visible { outline: 2px solid var(--sf-mark); outline-offset: 3px; border-radius: .2rem; }
+  .crest { font-size: clamp(1.6rem, 1.2rem + 2.2vw, 2.3rem); line-height: 1.15; margin: 0; letter-spacing: .06em; text-transform: uppercase; }
+  .standfirst { color: var(--sf-muted); margin: .4rem 0 0; }
+  nav[aria-label] { margin: 1.6rem 0 2.4rem; padding-block: .7rem; border-block: 1px solid var(--sf-rule); font-size: .92rem; }
+  nav[aria-label] ul { list-style: none; display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; margin: 0; padding: 0; }
+  nav[aria-label] [aria-current="page"] { color: var(--sf-muted); font-weight: 600; text-decoration: none; }
+  main { counter-reset: sfsec; }
+  section { margin-block: 2.6rem; }
+  section > h2::before { counter-increment: sfsec; content: counter(sfsec) ". "; color: var(--sf-mark); }
+  h2 { font-size: 1.22rem; line-height: 1.3; margin: 0 0 .6rem; }
+  h3 { font-size: 1.02rem; margin: 1.5rem 0 .25rem; color: var(--sf-mark); }
+  p { margin: .6rem 0; }
+  .keys { display: grid; gap: .35rem 1.2rem; grid-template-columns: minmax(0, 9.5rem) 1fr; margin: 1rem 0; }
+  .keys dt { font-weight: 600; }
+  .keys dd { margin: 0; color: var(--sf-muted); }
+  @media (max-width: 34rem) { .keys { grid-template-columns: 1fr; gap: 0 0; } .keys dd { margin-bottom: .7rem; } }
+  .panel { background: var(--sf-surface); border: 1px solid var(--sf-rule); border-radius: .6rem; padding: 1rem 1.1rem; margin: 1.2rem 0; }
+  .panel > :first-child { margin-top: 0; }
+  .panel > :last-child { margin-bottom: 0; }
+  .ledger { margin: 1rem 0; padding: 0; list-style: none; }
+  .ledger > li { border-left: 3px solid var(--sf-rule); padding: .1rem 0 .1rem .9rem; margin-block: 1rem; }
+  .ledger b { display: block; color: var(--sf-mark); font-size: .95rem; letter-spacing: .02em; }
+  kbd { font: inherit; font-weight: 700; letter-spacing: .04em; color: var(--sf-mark); }
+  .colophon { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--sf-rule); color: var(--sf-muted); font-size: .88rem; }
 </style>
 </head>
 <body>
-<h1>Shrinefall — Gizlilik Politikası</h1>
-<p class="sub">Son güncelleme 16 Eylül 2026 · Kaan İpek tarafından yayımlanan Shrinefall mobil oyunu (iOS ve Android, TestFlight sürümleri dahil) için geçerlidir</p>
-<p class="lang"><a href="privacy.html" hreflang="en" lang="en">English</a> · <a href="terms-tr.html">Topluluk kuralları</a> · <a href="index.html">Destek</a></p>
+<a class="skip" href="#main">İçeriğe geç</a>
+<div class="wrap">
+<header>
+  <h1 class="crest">Hangi veri ne işe yarıyor</h1>
+  <p class="standfirst">Shrinefall'ın gizlilik metni · 17 Eylül 2026'da gözden geçirildi · oyunun iOS
+  ve Android sürümlerini, TestFlight derlemeleri dahil, kapsar.</p>
+</header>
 
-<p>Shrinefall; tek başına ya da altı harfli bir kodu paylaşarak üç arkadaşınla birlikte
-oynayabileceğin bir piksel sanatı aksiyon RPG'sidir. <strong>Oyunda hesap, reklam, uygulama içi
-satın alma, sohbet ve analitik kiti yoktur.</strong> Cihazından bir şey yalnızca ortak oyun
-oynadığında çıkar; bu sayfa bunun tam olarak ne olduğunu anlatır.</p>
+<nav aria-label="Shrinefall sayfaları">
+  <ul>
+    <li><a href="index.html" hreflang="en">Yardım masası</a></li>
+    <li><span aria-current="page">Hangi veri ne işe yarıyor</span></li>
+    <li><a href="terms-tr.html">Ev kuralları</a></li>
+    <li><a href="delete-data.html" hreflang="en">Verini silmek</a></li>
+    <li><a href="privacy.html" hreflang="en" lang="en">English</a></li>
+  </ul>
+</nav>
 
-<h2>Verinden kim sorumlu</h2>
-<p>Veri sorumlusu, Amerika Birleşik Devletleri'nin Texas eyaletinde yerleşik bağımsız geliştirici
-<strong>Kaan İpek</strong>'tir (RLD Games adıyla yayımlar). İletişim:
-<a href="mailto:rld.ranger07@gmail.com">rld.ranger07@gmail.com</a>. Kendi sunucumuz yoktur: aşağıda
-anlatılanların hiçbiri bizim tarafımızdan saklanmaz. Türkiye'de yaşayan oyuncular, 6698 sayılı
-KVKK'nın 11. maddesindeki haklarını (bilgi isteme, düzeltme, silme) bu adrese yazarak
-kullanabilir.</p>
+<main id="main">
 
-<h2>Cihazında kalanlar</h2>
-<p>Kahramanların ve seviyeleri, envanterin ve altının, yaktığın tapınaklar, ayarların, yazdığın
-oyuncu adı ve toplam oyun süren oyun tarafından cihazında saklanır. <strong>Bize yüklenmez</strong>
-ve cihazlar arasında kopyalanmaz. Uygulamayı silmek bunları siler.</p>
+<div class="panel">
+  <p><b>Kısacası.</b> Shrinefall'da hesap yok, mağaza yok, mesaj kutusu yok. Tek başına oynarken oyun
+  hiçbir ağa dokunmaz. Cihazdan bir şeyin çıktığı tek an, bir ortak oyun odası açtığın ya da bir odaya
+  girdiğin andır; aşağıdaki bölümler o anda tam olarak neyin çıktığını anlatıyor.</p>
+</div>
 
-<h2>Cihazından çıkanlar ve ne zaman çıktığı</h2>
+<section>
+  <h2>Bu işin arkasında kim var</h2>
+  <p>Shrinefall'ı <strong>Kaan İpek</strong> tek başına yapıyor ve Amerika Birleşik Devletleri'nin
+  Teksas eyaletinden, RLD Games adıyla yayımlıyor. Burada anlatılan her şeyin veri sorumlusu odur;
+  bu konudaki her soru için adres
+  <a href="mailto:rld.ranger07@gmail.com">rld.ranger07@gmail.com</a>.</p>
+  <p>RLD Games'in kendine ait bir sunucusu yok. Aşağıda yazanların hiçbiri bizde duran bir
+  veritabanına düşmüyor, çünkü öyle bir veritabanı yok.</p>
+</section>
 
-<h3>1. Misafir oyuncu (Unity Authentication)</h3>
-<p>ORTAK OYUN ekranında ilk kez KUR ya da KATIL'a dokunduğunda oyun, Unity Relay'in kabul etmesi için
-Unity Authentication'a anonim olarak giriş yapar. Unity rastgele bir <strong>oyuncu kimliği</strong>
-verir; aynı misafir oyuncunun bir sonraki açılışta geri gelmesi için bu kimlik cihazında saklanır.
-Kimliğe ad, e-posta adresi ya da başka bir kimlik bilgisi bağlı değildir; oyun bu kimliği hiç
-göstermez ve altında hiçbir şey saklamaz.</p>
+<section>
+  <h2>Tek başınayken oyun sessizdir</h2>
+  <p>Başlık ekranında <kbd>PLAY</kbd> dediğinde açılan dünya, tamamen cihazındaki uygulamanın içinde
+  çalışır — teknik olarak yerel geri döngü adresine bağlı bir ev sahibidir, yani kimseyle konuşmadığının
+  dolambaçlı anlatımıdır. Hiçbir giriş yapılmaz, hiçbir hizmet uyandırılmaz, dışarı tek bir paket
+  bile çıkmaz. Oyunu baştan sona uçak modunda bitirebilirsin.</p>
+</section>
 
-<h3>2. Ortak oyun oturumları (Unity Relay)</h3>
-<p>Ortak oyun trafiği, oturum süresince geldiği IP adresini gören Unity Relay üzerinden geçer. Ortak
-dünyayı ev sahibinin cihazı çalıştırır. Bir partideyken yazdığın oyuncu adı, seçtiğin kahraman ve
-seviyesi diğer parti üyelerine gönderilir; lobide, onların ekranında ve kahramanının üstünde
-görünür. Bu bilgiler yalnızca o cihazlardaki çalışan oyunda durur; Relay oyununu saklamaz, bize
-hiçbir şey ulaşmaz.</p>
+<section>
+  <h2>Bir oda açmak, bir odaya girmek</h2>
+  <p>Ortak oyun ekranında <kbd>HOST A ROOM</kbd> ya da <kbd>JOIN</kbd> düğmesine ilk kez bastığında
+  Unity Gaming Services devreye girer ve ardından iki şey olur.</p>
+  <ul class="ledger">
+    <li>
+      <b>Anonim bir oyuncu oluşturulur</b>
+      Unity Authentication, kendisine hiçbir şey verilmeden seni içeri alır — adres yok, parola yok,
+      profil yok — ve karşılığında rastgele bir oyuncu kimliği döndürür; uygulama bu kimliği cihazda
+      saklar, böylece bir dahaki sefere aynı anonim oyuncu geri gelir. Kimlik oyunun hiçbir yerinde
+      gösterilmez ve altına sana ait hiçbir kayıt işlenmez.
+    </li>
+    <li>
+      <b>Grubun trafiğini bir aktarıcı taşır</b>
+      Unity Relay, odadaki cihazlar arasında şifreli paketleri gidip getirir. Oda açık kaldığı
+      sürece her bağlantının hangi ağ adresinden geldiğini zorunlu olarak görür. Ortak dünyanın
+      kendisi ise ev sahibinin cihazında işler; ne bizim ne de Unity'nin bir makinesinde.
+    </li>
+  </ul>
+  <p>Grup sürdüğü sürece içindeki diğer oyunculara yazdığın ad, seçtiğin kahraman ve kahramanın
+  seviyesi ulaşır — lobi listesini ve karakterinin üstündeki etiketi çizen şey budur. Bu bilgi
+  yalnızca o cihazlarda çalışan oyun kopyalarının içinde bulunur ve grup dağıldığında kaybolur.</p>
+</section>
 
-<h3>3. Unity'nin gördüğü teknik veriler</h3>
-<p>Her çevrimiçi hizmet gibi Unity Gaming Services, oyun onunla konuştuğunda IP adresini, cihaz ve
-uygulama tanımlayıcılarını ve temel tanılama verilerini alır. Unity,
-<a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">Unity Oyun Oyuncusu ve
-Uygulama Kullanıcısı Gizlilik Politikası</a> uyarınca veri işleyenimizdir; sunucuları ülkenin
-dışında olabilir (yurt dışına aktarım).</p>
+<section>
+  <h2>Unity'nin görebildikleri</h2>
+  <p>Çevrimiçi her hizmet, kendisini kimin aradığını görür. Unity Gaming Services de bu yüzden, oyun
+  onunla konuştuğu sürece ağ adresini, cihaz ve uygulama tanımlayıcılarını ve sıradan tanılama
+  sinyallerini alır. Unity bu malzemeyi bizim veri işleyenimiz olarak,
+  <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" hreflang="en" lang="en">Unity
+  Game Player and App User Privacy Policy</a> metni uyarınca ele alır; üstelik bu işin yürüdüğü
+  sunucular pekâlâ oyunu oynadığın ülkenin dışında olabilir.</p>
+  <p>Bundan ayrı olarak Apple ve Google, kendi koşullarına ve cihaz ayarlarında yaptığın seçimlere
+  göre çökme raporları ve kullanım rakamları topluyor, bunların bir kısmını da toplu hâlde
+  geliştiricilere geri veriyor.</p>
+</section>
 
-<h3>4. Apple ve Google</h3>
-<p>App Store, TestFlight ve Google Play kendi koşulları ve cihaz ayarların çerçevesinde çökme
-raporları ve kullanım istatistikleri toplayabilir ve bunları bizimle toplu ya da anonim biçimde
-paylaşabilir. Biz kendi çökme raporlama ya da analitik kitimizi eklemiyoruz.</p>
+<section>
+  <h2>App Store etiketi ve arkasındakiler</h2>
+  <p>Shrinefall'ın içinde ne bir reklam SDK'sı ne de üçüncü taraf bir analitik kiti var; projenin
+  paket listesinde ikisi de bulunmuyor. Buna karşılık Unity motorunun kendi analitik modülü pakette
+  duruyor; ortak oyun her çalıştığında da yukarıda anlatılan hizmetlere bağlanılıyor. Bütün
+  bunların bağlayıcı özeti, App Store'da yayımlanan App Privacy etiketidir; etiket şunları
+  bildiriyor:</p>
+  <dl class="keys">
+    <dt>User ID</dt><dd>Kimliğinle ilişkili. Uygulamanın çalışması için kullanılır — bu, anonim Unity oyuncu kimliğidir.</dd>
+    <dt>Other Usage Data</dt><dd>Kimliğinle ilişkili. Analitik ve uygulamanın çalışması için kullanılır.</dd>
+    <dt>Crash Data</dt><dd>Toplanıyor, kimliğinle ilişkilendirilmiyor.</dd>
+  </dl>
+  <p>Bunların hiçbiri seni başka bir şirketin uygulamasına ya da sitesine kadar izlemek için
+  kullanılmıyor. Shrinefall'ın hiçbir zaman App Tracking Transparency (uygulama izleme şeffaflığı)
+  izni istememesinin sebebi de budur.</p>
+</section>
 
-<h2>Özet tablo</h2>
-<table>
-<tr><th>Veri</th><th>Ne zaman</th><th>Nerede tutulur</th><th>Neden</th></tr>
-<tr><td>Rastgele oyuncu kimliği</td><td>İlk KUR ya da KATIL</td><td>Unity Authentication, cihazında önbellekte</td><td>Relay giriş yapmış oyuncu ister</td></tr>
-<tr><td>Oyuncu adı, seçilen kahraman, seviye</td><td>Bir partideyken</td><td>Yalnızca diğer parti üyelerinin çalışan oyununda</td><td>Kimin oynadığını göstermek</td></tr>
-<tr><td>IP adresi, cihaz ve uygulama tanımlayıcıları, tanılama</td><td>Her ortak oyun oturumu</td><td>Unity (geçici)</td><td>Hizmeti çalıştırmak, güvenlik</td></tr>
-<tr><td>Çökme raporları, kullanım istatistikleri</td><td>Cihaz ayarlarına göre</td><td>Apple / Google</td><td>Platform tanılaması</td></tr>
-</table>
+<section>
+  <h2>Yerinden kımıldamayanlar</h2>
+  <p>Kahramanların ve seviyeleri, çantandakiler, altının, yeniden ışığa kavuşturduğun türbeler,
+  <kbd>SETTINGS</kbd> ekranındaki ayar çubukları, yazdığın ad ve ne kadar oynadığın, uygulamanın
+  cihazdaki kendi alanında tek bir dosyaya yazılır. O dosya hiçbir yere yüklenmiyor, eşitlenmiyor ve
+  ikinci bir cihaza kopyalanmıyor; oyunu silip yeniden kurarsan sıfırdan başlar.</p>
+</section>
 
-<h2>Ne kadar süre tutulur</h2>
-<ul>
-  <li>Misafir oyuncu kimliği, uygulamayı silene kadar cihazında önbellekte kalır. Unity'de altında
-      hiçbir veri saklanmayan rastgele bir dizedir.</li>
-  <li>Parti verisi (ad, kahraman, seviye) yalnızca oturum boyunca yaşar; parti bitince yok olur.</li>
-  <li>Relay oturum verisi oturumla biter. Unity'nin geçici teknik kayıtları Unity'nin kendi saklama
-      sürelerine tabidir.</li>
-  <li>Cihazındaki veri: uygulamayı silene kadar.</li>
-</ul>
+<section>
+  <h2>Hangisi ne kadar kalıyor</h2>
+  <dl class="keys">
+    <dt>Kayıt dosyası</dt><dd>Uygulamayı silene kadar.</dd>
+    <dt>Anonim oyuncu kimliği</dt><dd>Uygulamayı silene kadar cihazda tutulur. Unity tarafında ise altına hiçbir şey işlenmemiş, çıplak ve rastgele bir dizidir.</dd>
+    <dt>Gruptaki ad, kahraman, seviye</dt><dd>Yalnızca o grup sürdüğü sürece.</dd>
+    <dt>Aktarıcı trafiği</dt><dd>Odayla birlikte biter. Unity'nin kendi teknik günlükleri bizim değil, Unity'nin saklama takvimine tabidir.</dd>
+  </dl>
+</section>
 
-<h2>Seçeneklerin</h2>
-<ul>
-  <li>Tek başına oyna. Cihazından hiçbir şey çıkmaz; oyun hiçbir zaman giriş yapmanı istemez.</li>
-  <li>Oyuncu adını menüden istediğin zaman değiştir; ad yalnızca ortak oyun kodunu verdiğin kişilere
-      görünür.</li>
-  <li>Kayıt dosyasını ve önbellekteki misafir kimlik bilgisini kaldırmak için uygulamayı sil. Geride
-      kalan oyuncu kimliğinin Unity'den de silinmesini istersen bize yaz; oyun kimliği göstermediği
-      için ortak oyunu en son ne zaman oynadığını yaklaşık olarak söyle, onu arayalım.</li>
-</ul>
+<section>
+  <h2>Senin elinde olanlar</h2>
+  <p>Çevrimdışı kal, hiçbir şey çıkmaz. Adını canın ne zaman isterse değiştir — o ad, oda kodunu
+  verdiğin gruptan başka kimseye ulaşmaz. Her şeyi temizlemek için
+  <a href="delete-data.html" hreflang="en">verini silme sayfasına</a> (İngilizce) bak; orada hem
+  cihazdaki dosya hem de Unity'de duran anonim oyuncu kimliği anlatılıyor.</p>
+</section>
 
-<h2>Hukuki sebep</h2>
-<p>Yukarıdaki ortak oyun verilerini, bu özelliği sen istediğin için (sözleşmenin ifası); teknik
-verileri ise çalışan ve güvenli bir hizmet sunma meşru menfaatimizle işliyoruz. Kişisel bilgileri
-satmıyor, paylaşmıyor ve reklam için kullanmıyoruz. Hakkında ne tuttuğumuzu istediğin zaman
-sorabilirsin — çalışan bir ortak oyun oturumu dışında bu, hiçbir şeydir.</p>
+<section>
+  <h2>Küçük oyuncular</h2>
+  <p>Shrinefall'ın ortak oyun tarafı on üç yaşından büyük oyuncular içindir. Oyun bu yaşın altındaki
+  çocuklara yönelik değildir ve onlardan bilerek kişisel bilgi almaz. Daha küçük bir çocuğun ortak
+  oyun oynadığını düşünüyorsan yukarıdaki adrese yaz, gereği yapılır.</p>
+</section>
 
-<h2>Çocuklar</h2>
-<p>Shrinefall'un çevrimiçi özellikleri 13 yaş ve üzeri oyuncular içindir. Oyun 13 yaş altı çocuklara
-yönelik değildir ve onlardan bilerek kişisel bilgi toplamaz. 13 yaş altı bir çocuğun ortak oyun
-oynadığını düşünüyorsan bize yaz.</p>
+<section>
+  <h2>Bunlar neye dayanarak yapılıyor</h2>
+  <p>Ortak oyunla ilgili veriler, onlar olmadan çalışması mümkün olmayan bir özelliği sen istediğin
+  için işleniyor; yani seninle aramızdaki sözleşmenin ifası için. Teknik sinyaller ise çalışan ve
+  makul ölçüde güvenli bir hizmeti ayakta tutmaktaki meşru menfaate dayanıyor. Hiçbiri satılmıyor,
+  kiralanmıyor, takas edilmiyor, reklamcılığa yedirilmiyor. Hakkında ne tutulduğunu istediğin an
+  sorabilirsin — canlı bir ortak oyun odasının dışında dürüst cevap: hiçbir şey.</p>
+</section>
 
-<h2>Değişiklikler</h2>
-<p>Bu politika değişirse yeni sürümü, yukarıda yeni bir tarihle bu sayfada görünür. Türkçe ve
-İngilizce sürümler aynı şeyi söyler; farklılık olursa Türkiye'de Türkçe metin esas alınır.</p>
+<section>
+  <h2>Bu sayfa değişirse</h2>
+  <p>Değişiklikler burada yayımlanır ve başlıktaki tarih de onlarla birlikte ilerler; ayrıca bir
+  arşiv tutulmuyor. Bu metnin İngilizcesi
+  <a href="privacy.html" hreflang="en" lang="en">privacy.html</a> adresinde yayımlanıyor. İki metnin
+  birbirinden ayrıldığı yerde, Türkiye dışında İngilizce olanı esas alınır.</p>
+</section>
 
-<h2>İletişim</h2>
-<p>Bu politika ya da verin hakkında sorular: <a href="mailto:rld.ranger07@gmail.com">rld.ranger07@gmail.com</a></p>
+<section>
+  <h2>Bize ulaşmak</h2>
+  <p>Bu metne ya da sana ait verilere dair ne varsa:
+  <a href="mailto:rld.ranger07@gmail.com">rld.ranger07@gmail.com</a>. O kutuyu tek bir kişi okuyor,
+  cevabı da aynı kutudan yazıyor.</p>
+</section>
 
-<footer>Shrinefall © 2026 Kaan İpek. Üçüncü taraf görsel ve ses kaynakçası oyunun ayarlar ekranındadır.</footer>
+</main>
+
+<p class="colophon">Shrinefall © 2026 Kaan İpek, RLD Games adıyla yayımlanır. Üçüncü taraf görseller,
+sesler ve yazı tipleri oyunun <kbd>CREDITS</kbd> ekranında ve
+<a href="index.html" hreflang="en">yardım masasında</a> anılıyor.</p>
+</div>
 </body>
 </html>

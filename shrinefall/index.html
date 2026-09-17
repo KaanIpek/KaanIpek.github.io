@@ -3,60 +3,166 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Shrinefall — Support</title>
+<title>Shrinefall — Help desk</title>
+<meta name="description" content="Help, contact and answers for Shrinefall, a pixel-art action RPG for one to four players.">
 <style>
-  :root { color-scheme: light dark; }
-  body { margin: 0 auto; padding: 2.5rem 1.25rem 4rem; max-width: 44rem;
-         font: 16px/1.65 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-         color: #1b1a17; background: #f5f1e6; }
-  @media (prefers-color-scheme: dark) { body { color: #e9e2d3; background: #141318; } }
-  h1 { font-size: 2rem; margin: 0 0 .2rem; }
-  h2 { font-size: 1.12rem; margin: 2.2rem 0 .5rem; }
-  .sub { opacity: .72; margin: 0 0 2rem; }
-  ul { padding-left: 1.15rem; } li { margin: .35rem 0; }
-  a { color: #8a5a1c; }
-  @media (prefers-color-scheme: dark) { a { color: #e0b063; } }
-  table { border-collapse: collapse; width: 100%; font-size: .93rem; }
-  th, td { text-align: left; vertical-align: top; padding: .4rem .5rem; border-bottom: 1px solid rgba(128,128,128,.35); }
-  footer { margin-top: 3rem; opacity: .7; font-size: .9rem; }
+  :root {
+    color-scheme: dark light;
+    --sf-bg: #12131a;
+    --sf-surface: #1b1d27;
+    --sf-ink: #e6e3da;
+    --sf-muted: #a5a196;
+    --sf-rule: #2c3040;
+    --sf-link: #7cc3b1;
+    --sf-mark: #d8a657;
+    --sf-gap: clamp(1rem, 4vw, 1.75rem);
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --sf-bg: #fbfaf6;
+      --sf-surface: #ffffff;
+      --sf-ink: #23242b;
+      --sf-muted: #5b5d68;
+      --sf-rule: #e3e0d7;
+      --sf-link: #10695a;
+      --sf-mark: #7d5709;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--sf-bg);
+    color: var(--sf-ink);
+    font-family: ui-sans-serif, "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+    font-size: clamp(1rem, 0.96rem + 0.25vw, 1.08rem);
+    line-height: 1.7;
+  }
+  .wrap { width: min(38rem, 100% - 2 * var(--sf-gap)); margin-inline: auto; padding-block: var(--sf-gap) 5rem; }
+  .skip { position: absolute; left: -999px; }
+  .skip:focus { left: var(--sf-gap); top: var(--sf-gap); padding: .5rem .9rem; background: var(--sf-surface); border-radius: .4rem; }
+  a { color: var(--sf-link); text-underline-offset: .18em; }
+  a:focus-visible, .skip:focus-visible { outline: 2px solid var(--sf-mark); outline-offset: 3px; border-radius: .2rem; }
+  .crest { font-size: clamp(1.6rem, 1.2rem + 2.2vw, 2.3rem); line-height: 1.15; margin: 0; letter-spacing: .06em; text-transform: uppercase; }
+  .standfirst { color: var(--sf-muted); margin: .4rem 0 0; }
+  nav[aria-label] { margin: 1.6rem 0 2.4rem; padding-block: .7rem; border-block: 1px solid var(--sf-rule); font-size: .92rem; }
+  nav[aria-label] ul { list-style: none; display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; margin: 0; padding: 0; }
+  nav[aria-label] [aria-current="page"] { color: var(--sf-muted); font-weight: 600; text-decoration: none; }
+  section { margin-block: 2.6rem; }
+  h2 { font-size: 1.22rem; line-height: 1.3; margin: 0 0 .6rem; }
+  h3 { font-size: 1.02rem; margin: 1.5rem 0 .25rem; color: var(--sf-mark); }
+  p { margin: .6rem 0; }
+  .keys { display: grid; gap: .35rem 1.2rem; grid-template-columns: minmax(0, 9.5rem) 1fr; margin: 1rem 0; }
+  .keys dt { font-weight: 600; }
+  .keys dd { margin: 0; color: var(--sf-muted); }
+  @media (max-width: 34rem) { .keys { grid-template-columns: 1fr; gap: 0 0; } .keys dd { margin-bottom: .7rem; } }
+  .steps { counter-reset: sf; list-style: none; margin: 1rem 0; padding: 0; }
+  .steps li { position: relative; padding-left: 2.2rem; margin-block: .75rem; }
+  .steps li::before { counter-increment: sf; content: counter(sf); position: absolute; left: 0; top: .05rem; width: 1.6rem; height: 1.6rem; border: 1px solid var(--sf-rule); border-radius: 50%; color: var(--sf-mark); font-size: .82rem; font-weight: 700; display: grid; place-items: center; }
+  .panel { background: var(--sf-surface); border: 1px solid var(--sf-rule); border-radius: .6rem; padding: 1rem 1.1rem; margin: 1.2rem 0; }
+  kbd { font: inherit; font-weight: 700; letter-spacing: .04em; color: var(--sf-mark); }
+  .credit-list { margin: .6rem 0; padding-left: 1.1rem; color: var(--sf-muted); }
+  .credit-list li { margin-block: .3rem; }
+  .colophon { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--sf-rule); color: var(--sf-muted); font-size: .88rem; }
 </style>
 </head>
 <body>
-<h1>Shrinefall</h1>
-<p class="sub">A pixel-art action RPG for one to four players — support and contact</p>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header>
+  <h1 class="crest">Shrinefall</h1>
+  <p class="standfirst">Help desk for the pixel-art action RPG — one to four players, no account, no shop.</p>
+</header>
 
-<h2>Getting help</h2>
-<p>Something broken, a hero lost, a question about the game? Write to
-<a href="mailto:rld.ranger07@gmail.com">rld.ranger07@gmail.com</a> and say which device you are on
-and what happened. Replies come from the same address.</p>
+<nav aria-label="Shrinefall pages">
+  <ul>
+    <li><span aria-current="page">Help desk</span></li>
+    <li><a href="privacy.html">What data does what</a></li>
+    <li><a href="terms.html">House rules</a></li>
+    <li><a href="delete-data.html">Erasing your data</a></li>
+    <li><a href="privacy-tr.html" hreflang="tr" lang="tr">Türkçe</a></li>
+  </ul>
+</nav>
 
-<h2>Playing co-op</h2>
-<ul>
-  <li>One player opens <strong>CO-OP → HOST</strong>. A six-letter code appears; share it with up to
-      three friends.</li>
-  <li>Each friend opens <strong>CO-OP</strong>, enters the code and taps <strong>JOIN</strong>, then picks
-      a hero and taps <strong>READY</strong>. The host starts the world for everyone.</li>
-  <li>Loot is rolled per player, so nobody can take your drop; experience is shared with party
-      members near you.</li>
-  <li>Co-op needs an internet connection and the same app version on every device. Playing alone
-      needs neither.</li>
-</ul>
+<main id="main">
 
-<h2>Saves</h2>
-<p>Your heroes, levels, inventory, gold, lit shrines and settings live on your device, in the game's
-own save file. They are not uploaded anywhere and are not copied between devices. Deleting the app
-deletes them.</p>
+<section>
+  <h2>Reaching a human</h2>
+  <p>One person builds and answers for Shrinefall. Post to
+  <a href="mailto:rld.ranger07@gmail.com">rld.ranger07@gmail.com</a> and the answer arrives from that
+  same mailbox — there is no ticket portal and no bot in between.</p>
+  <p>Three things make a bug easy to chase, so include them if you can:</p>
+  <dl class="keys">
+    <dt>Handset</dt><dd>iPhone or iPad model, and the iOS version.</dd>
+    <dt>Moment</dt><dd>Which screen you were on, and what you had just tapped.</dd>
+    <dt>Mode</dt><dd>Alone, hosting a room, or joined to someone else's.</dd>
+  </dl>
+</section>
 
-<h2>Credits</h2>
-<p>Shrinefall is built on freely licensed pixel art and audio: Ninja Adventure (Pixel-boy &amp; AAA),
-Pixel Crawler (Anokolisa), 0x72 Dungeon Tileset II, Kyrise's RPG Icon Pack, RPG Arsenal (LimeZu),
-Kenney Mobile Controls and RPG Audio, 28 High Quality 16-bit RPG Music (HydroGene), and the Barlow
-typeface (Jeremy Tribby, SIL OFL). The full list is in the game's settings screen.</p>
+<section>
+  <h2>Getting a party together</h2>
+  <p>Both handsets need the internet and the same version of the game. Playing by yourself needs
+  neither.</p>
+  <ol class="steps">
+    <li>The host taps <kbd>CO-OP</kbd>, then <kbd>HOST A ROOM</kbd>. A six-character room code
+        appears in gold under the words ROOM CODE.</li>
+    <li>Everyone else taps <kbd>CO-OP</kbd>, types that code into the box, and taps
+        <kbd>JOIN</kbd>.</li>
+    <li>Each guest picks a hero on the party screen and taps <kbd>READY</kbd>.</li>
+    <li>The host taps <kbd>START</kbd>, and the world opens for every filled seat. Four is the
+        ceiling.</li>
+  </ol>
+  <div class="panel">
+    <p>Nothing you find is taken from you: loot rolls separately for each player, and kills you are
+    near — within forty tiles — share their experience with the rest of the party.</p>
+  </div>
+</section>
 
-<h2>Privacy and rules</h2>
-<p><a href="privacy.html">Privacy policy</a> · <a href="terms.html">Community rules and terms</a> ·
-<a href="privacy-tr.html" lang="tr">Türkçe</a></p>
+<section>
+  <h2>Questions that come up</h2>
 
-<footer>Shrinefall © 2026 Kaan İpek (RLD Games).</footer>
+  <h3>The code will not connect</h3>
+  <p>Room codes live only as long as the host stays in the room. If the host backed out, the code is
+  already dead and a fresh one is needed. Check as well that both handsets are on the same version of
+  the game: a host turns away any build whose network protocol differs from its own.</p>
+
+  <h3>Where do my heroes live?</h3>
+  <p>In a single save file inside the app on your own device. It never travels to us, and it does not
+  follow you to a second device. Removing the app removes the save with it, and there is no backup
+  we can restore from.</p>
+
+  <h3>Can I change the name I typed?</h3>
+  <p>Yes, at any time, on the hero-choosing screen where you first typed it. It holds sixteen
+  characters and reads <em>Wanderer</em> until you put something else there. Only a party you handed
+  a room code to ever sees it.</p>
+
+  <h3>Is anything for sale?</h3>
+  <p>No. Shrinefall carries no shop, no currency you can buy, no advertising and no subscription. The
+  download itself is free, so no money changes hands at any point.</p>
+</section>
+
+<section>
+  <h2>Where the art and music come from</h2>
+  <p>Shrinefall's visuals and audio are licensed packs made by other artists, not drawn or composed
+  for this game:</p>
+  <ul class="credit-list">
+    <li>Ninja Adventure Asset Pack — Pixel-boy &amp; AAA (CC0): actors, bosses, tilesets, items, FX, UI, music, sounds</li>
+    <li>Pixel Crawler Free Pack — Anokolisa: environment props</li>
+    <li>0x72 Dungeon Tileset II (CC0): dungeon props</li>
+    <li>Kyrise's Free 16x16 RPG Icon Pack, RPG Arsenal (LimeZu), Pixel Art Icon Pack – RPG: item icons</li>
+    <li>Kenney Mobile Controls &amp; Kenney RPG Audio (CC0): joystick, buttons, interface sounds</li>
+    <li>28 High Quality 16-bit RPG Music — HydroGene: boss themes</li>
+    <li>Barlow — Jeremy Tribby (SIL OFL 1.1): body typeface</li>
+  </ul>
+  <p>The same list sits behind the <kbd>CREDITS</kbd> button on the title screen — its own
+  button there, not a page buried in <kbd>SETTINGS</kbd>.</p>
+</section>
+
+</main>
+
+<p class="colophon">Shrinefall © 2026 Kaan İpek, published as RLD Games.
+<a href="privacy.html">What data does what</a> · <a href="terms.html">House rules</a> ·
+<a href="delete-data.html">Erasing your data</a></p>
+</div>
 </body>
 </html>

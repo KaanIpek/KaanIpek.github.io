@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shrinefall — Erasing your data</title>
+<meta name="description" content="Shrinefall has no accounts. Here is every piece of data it involves and how to get rid of each one.">
+<style>
+  :root {
+    color-scheme: dark light;
+    --sf-bg: #12131a;
+    --sf-surface: #1b1d27;
+    --sf-ink: #e6e3da;
+    --sf-muted: #a5a196;
+    --sf-rule: #2c3040;
+    --sf-link: #7cc3b1;
+    --sf-mark: #d8a657;
+    --sf-gap: clamp(1rem, 4vw, 1.75rem);
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --sf-bg: #fbfaf6;
+      --sf-surface: #ffffff;
+      --sf-ink: #23242b;
+      --sf-muted: #5b5d68;
+      --sf-rule: #e3e0d7;
+      --sf-link: #10695a;
+      --sf-mark: #7d5709;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--sf-bg);
+    color: var(--sf-ink);
+    font-family: ui-sans-serif, "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+    font-size: clamp(1rem, 0.96rem + 0.25vw, 1.08rem);
+    line-height: 1.7;
+  }
+  .wrap { width: min(38rem, 100% - 2 * var(--sf-gap)); margin-inline: auto; padding-block: var(--sf-gap) 5rem; }
+  .skip { position: absolute; left: -999px; }
+  .skip:focus { left: var(--sf-gap); top: var(--sf-gap); padding: .5rem .9rem; background: var(--sf-surface); border-radius: .4rem; }
+  a { color: var(--sf-link); text-underline-offset: .18em; }
+  a:focus-visible, .skip:focus-visible { outline: 2px solid var(--sf-mark); outline-offset: 3px; border-radius: .2rem; }
+  .crest { font-size: clamp(1.6rem, 1.2rem + 2.2vw, 2.3rem); line-height: 1.15; margin: 0; letter-spacing: .06em; text-transform: uppercase; }
+  .standfirst { color: var(--sf-muted); margin: .4rem 0 0; }
+  nav[aria-label] { margin: 1.6rem 0 2.4rem; padding-block: .7rem; border-block: 1px solid var(--sf-rule); font-size: .92rem; }
+  nav[aria-label] ul { list-style: none; display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; margin: 0; padding: 0; }
+  nav[aria-label] [aria-current="page"] { color: var(--sf-muted); font-weight: 600; text-decoration: none; }
+  section { margin-block: 2.6rem; }
+  h2 { font-size: 1.22rem; line-height: 1.3; margin: 0 0 .6rem; }
+  p { margin: .6rem 0; }
+  .panel { background: var(--sf-surface); border: 1px solid var(--sf-rule); border-radius: .6rem; padding: 1rem 1.1rem; margin: 1.2rem 0; }
+  .panel > :first-child { margin-top: 0; }
+  .panel > :last-child { margin-bottom: 0; }
+  .ledger { margin: 1rem 0; padding: 0; list-style: none; }
+  .ledger > li { border-left: 3px solid var(--sf-rule); padding: .1rem 0 .1rem .9rem; margin-block: 1rem; }
+  .ledger b { display: block; color: var(--sf-mark); font-size: .95rem; letter-spacing: .02em; }
+  .plain { margin: .8rem 0; padding-left: 1.1rem; }
+  .plain li { margin-block: .45rem; }
+  kbd { font: inherit; font-weight: 700; letter-spacing: .04em; color: var(--sf-mark); }
+  .colophon { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--sf-rule); color: var(--sf-muted); font-size: .88rem; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header>
+  <h1 class="crest">Erasing your data</h1>
+  <p class="standfirst">Shrinefall · reviewed 17 September 2026 · a companion to
+  <a href="privacy.html">what data does what</a>.</p>
+</header>
+
+<nav aria-label="Shrinefall pages">
+  <ul>
+    <li><a href="index.html">Help desk</a></li>
+    <li><a href="privacy.html">What data does what</a></li>
+    <li><a href="terms.html">House rules</a></li>
+    <li><span aria-current="page">Erasing your data</span></li>
+    <li><a href="privacy-tr.html" hreflang="tr" lang="tr">Türkçe</a></li>
+  </ul>
+</nav>
+
+<main id="main">
+
+<div class="panel">
+  <p><b>There is no account here to close.</b> Shrinefall never asks for a username, a password, an
+  e-mail address or a profile, and it has no sign-in button anywhere in it. So this page is not about
+  shutting an account down — it is a plain inventory of the two things the game does involve, and how
+  each one is got rid of.</p>
+</div>
+
+<section>
+  <h2>The two things that exist</h2>
+  <ul class="ledger">
+    <li>
+      <b>A save file on your handset</b>
+      Heroes, levels, bag, gold, relit shrines, the sliders in <kbd>SETTINGS</kbd>, the name you
+      typed and your total playing time. It sits in the app's own storage and has never been
+      uploaded anywhere.
+    </li>
+    <li>
+      <b>An anonymous player identifier at Unity</b>
+      A random string that Unity Authentication issued the first time you opened or entered a co-op
+      room, so that Unity Relay would accept the connection. It carries no name, no address and no
+      history; the game does not display it and files nothing under it.
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h2>Clearing the handset: delete the app</h2>
+  <p>Removing Shrinefall from the device takes the save file with it, along with the cached copy of
+  the anonymous identifier. Nothing survives the uninstall and nothing is waiting in a cloud backup
+  of ours to come back, because we keep no copy in the first place. That also means the erasure is
+  final — a run deleted this way cannot be restored by us or by anybody else.</p>
+</section>
+
+<section>
+  <h2>Clearing the Unity side: send one e-mail</h2>
+  <p>Deleting the app leaves the identifier itself sitting unused at Unity. If you would like that
+  removed as well, write to
+  <a href="mailto:rld.ranger07@gmail.com">rld.ranger07@gmail.com</a> and ask for it.</p>
+  <p>Because the game deliberately never shows you that string, we have to go looking for it, so
+  please include:</p>
+  <ul class="plain">
+    <li>roughly when you last opened or entered a co-op room — the month is usually enough;</li>
+    <li>which handset you were playing on;</li>
+    <li>the player name you were using at the time, if you remember it.</li>
+  </ul>
+  <p>You will hear back at the address you wrote from once it has been dealt with, or if the details
+  are not enough to identify anything. Ask the same way if you would rather first be told what is
+  held: outside a live co-op room, the honest answer will be nothing.</p>
+</section>
+
+<section>
+  <h2>Things this page cannot reach</h2>
+  <p>Crash reports and usage figures gathered by Apple or Google belong to their platforms, not to
+  us, and are governed by their policies and by your device settings. The record of your having
+  downloaded the app is likewise Apple's. Neither is something we can delete on your behalf.</p>
+</section>
+
+</main>
+
+<p class="colophon">Shrinefall © 2026 Kaan İpek, published as RLD Games.
+<a href="index.html">Help desk</a> · <a href="privacy.html">What data does what</a> ·
+<a href="terms.html">House rules</a></p>
+</div>
+</body>
+</html>

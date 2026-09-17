@@ -3,84 +3,188 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Shrinefall — Topluluk Kuralları ve Koşullar</title>
+<title>Shrinefall — Ev kuralları</title>
+<meta name="description" content="Shrinefall'da ortak oyun odaları ve oyuncu adları için kurallar, birini nasıl bildireceğin ve oyunun sunulduğu koşullar.">
 <link rel="alternate" hreflang="en" href="terms.html">
 <style>
-  :root { color-scheme: light dark; }
-  body { margin: 0 auto; padding: 2.5rem 1.25rem 4rem; max-width: 44rem;
-         font: 16px/1.65 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-         color: #1b1a17; background: #f5f1e6; }
-  @media (prefers-color-scheme: dark) { body { color: #e9e2d3; background: #141318; } }
-  h1 { font-size: 1.9rem; margin: 0 0 .25rem; }
-  h2 { font-size: 1.12rem; margin: 2.2rem 0 .5rem; }
-  .sub { opacity: .72; margin: 0 0 1rem; }
-  .lang { font-size: .9rem; margin: 0 0 2rem; }
-  ol, ul { padding-left: 1.15rem; }
-  li { margin: .35rem 0; }
-  a { color: #8a5a1c; }
-  @media (prefers-color-scheme: dark) { a { color: #e0b063; } }
-  footer { margin-top: 3rem; opacity: .7; font-size: .9rem; }
+  :root {
+    color-scheme: dark light;
+    --sf-bg: #12131a;
+    --sf-surface: #1b1d27;
+    --sf-ink: #e6e3da;
+    --sf-muted: #a5a196;
+    --sf-rule: #2c3040;
+    --sf-link: #7cc3b1;
+    --sf-mark: #d8a657;
+    --sf-gap: clamp(1rem, 4vw, 1.75rem);
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --sf-bg: #fbfaf6;
+      --sf-surface: #ffffff;
+      --sf-ink: #23242b;
+      --sf-muted: #5b5d68;
+      --sf-rule: #e3e0d7;
+      --sf-link: #10695a;
+      --sf-mark: #7d5709;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--sf-bg);
+    color: var(--sf-ink);
+    font-family: ui-sans-serif, "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+    font-size: clamp(1rem, 0.96rem + 0.25vw, 1.08rem);
+    line-height: 1.7;
+  }
+  .wrap { width: min(38rem, 100% - 2 * var(--sf-gap)); margin-inline: auto; padding-block: var(--sf-gap) 5rem; }
+  .skip { position: absolute; left: -999px; }
+  .skip:focus { left: var(--sf-gap); top: var(--sf-gap); padding: .5rem .9rem; background: var(--sf-surface); border-radius: .4rem; }
+  a { color: var(--sf-link); text-underline-offset: .18em; }
+  a:focus-visible, .skip:focus-visible { outline: 2px solid var(--sf-mark); outline-offset: 3px; border-radius: .2rem; }
+  .crest { font-size: clamp(1.6rem, 1.2rem + 2.2vw, 2.3rem); line-height: 1.15; margin: 0; letter-spacing: .06em; text-transform: uppercase; }
+  .standfirst { color: var(--sf-muted); margin: .4rem 0 0; }
+  nav[aria-label] { margin: 1.6rem 0 2.4rem; padding-block: .7rem; border-block: 1px solid var(--sf-rule); font-size: .92rem; }
+  nav[aria-label] ul { list-style: none; display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; margin: 0; padding: 0; }
+  nav[aria-label] [aria-current="page"] { color: var(--sf-muted); font-weight: 600; text-decoration: none; }
+  main { counter-reset: sfsec; }
+  section { margin-block: 2.6rem; }
+  section > h2::before { counter-increment: sfsec; content: counter(sfsec) ". "; color: var(--sf-mark); }
+  h2 { font-size: 1.22rem; line-height: 1.3; margin: 0 0 .6rem; }
+  p { margin: .6rem 0; }
+  .plain { margin: .8rem 0; padding-left: 1.1rem; }
+  .plain li { margin-block: .45rem; }
+  .panel { background: var(--sf-surface); border: 1px solid var(--sf-rule); border-radius: .6rem; padding: 1rem 1.1rem; margin: 1.2rem 0; }
+  .panel > :first-child { margin-top: 0; }
+  .panel > :last-child { margin-bottom: 0; }
+  kbd { font: inherit; font-weight: 700; letter-spacing: .04em; color: var(--sf-mark); }
+  .colophon { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--sf-rule); color: var(--sf-muted); font-size: .88rem; }
 </style>
 </head>
 <body>
-<h1>Shrinefall — Topluluk Kuralları ve Koşullar</h1>
-<p class="sub">Son güncelleme 16 Eylül 2026 · Kaan İpek (RLD Games) tarafından yayımlanan Shrinefall</p>
-<p class="lang"><a href="terms.html" hreflang="en" lang="en">English</a> · <a href="privacy-tr.html">Gizlilik politikası</a> · <a href="index.html">Destek</a></p>
+<a class="skip" href="#main">İçeriğe geç</a>
+<div class="wrap">
+<header>
+  <h1 class="crest">Ev kuralları</h1>
+  <p class="standfirst">Shrinefall'ın koşulları · 17 Eylül 2026'da gözden geçirildi · Kaan İpek, RLD
+  Games adıyla.</p>
+</header>
 
-<p>Shrinefall, baştan sona tek başına oynayabileceğin bir oyundur. Bir ortak oyun partisi kurduğun ya
-da birine katıldığın anda diğer oyuncular yazdığın adı görebilir ve bu kurallar geçerli olur. Sohbet,
-arkadaş listesi ve herkese açık eşleştirme yoktur: bir partide yalnızca kodu verilmiş kişiler
-bulunur.</p>
+<nav aria-label="Shrinefall sayfaları">
+  <ul>
+    <li><a href="index.html" hreflang="en">Yardım masası</a></li>
+    <li><a href="privacy-tr.html">Hangi veri ne işe yarıyor</a></li>
+    <li><span aria-current="page">Ev kuralları</span></li>
+    <li><a href="delete-data.html" hreflang="en">Verini silmek</a></li>
+    <li><a href="terms.html" hreflang="en" lang="en">English</a></li>
+  </ul>
+</nav>
 
-<h2>1. Oyuncu adları</h2>
-<ul>
-  <li>Menüde yazdığın ad, partine lobide, onların ekranında ve kahramanının üstünde görünür. Düzgün
-      olsun: hiçbir dilde ve yazımda hakaret, cinsel ya da nefret içerikli terim yok.</li>
-  <li>Başka bir kişiyi, gerçek bir kurumu ya da geliştiriciyi taklit eden ad kullanma.</li>
-  <li>Bir ada kimsenin kişisel bilgisini koyma — ne kendininkini ne başkasınınkini.</li>
-  <li>Adını menüden istediğin zaman değiştirebilirsin.</li>
-</ul>
+<main id="main">
 
-<h2>2. Ortak oyun</h2>
-<ul>
-  <li>Ortak oyun kodu bir davettir. Yalnızca partinde istediğin kişilerle paylaş; kimin alacağına ev
-      sahibi karar verir.</li>
-  <li>Ortak oyun oturumları ev sahibinin cihazında çalışır ve geçerli olan dünya ev sahibininkidir.
-      Değiştirilmiş istemciler, ortağının koşusunu bozan açıklar ya da bir yoldaşın oyununu bilerek
-      mahvetmek hile sayılır.</li>
-  <li>Keyif almadığın bir partiden ayrıl: menü seni ilerlemen bozulmadan, istediğin zaman kendi
-      dünyana geri götürür.</li>
-</ul>
+<div class="panel">
+  <p><b>Bunlar ne zaman geçerli.</b> Shrinefall'ı baştan sona tek bir kişiyle karşılaşmadan
+  bitirebilirsin; tek başına oynadığın oyun da senden başkasını ilgilendirmez. Bir oda açtığın ya da
+  bir odaya adım attığın andan itibaren seçtiğin adı başka oyuncular okuyabilir ve aşağıdaki her şey
+  yürürlüğe girer.</p>
+</div>
 
-<h2>3. Bildirme</h2>
-<ul>
-  <li>Bir oyuncuyu, oyuncu adı, ne olduğu ve yaklaşık ne zaman olduğuyla birlikte
-      <a href="mailto:rld.ranger07@gmail.com">rld.ranger07@gmail.com</a> adresine e-posta göndererek
-      bildir. Başka bir şey gerekmez.</li>
-  <li>Bildirimler bir insan tarafından, ulaşmasından itibaren <strong>72 saat içinde</strong> okunur.
-      Shrinefall'da hesap olmadığı için elimizdeki araçlar tavsiyeyle ve kural ihlalinde daha fazla
-      destek vermemekle sınırlıdır; ev sahipleri kodlarını paylaşmayı bırakmakta serbesttir.</li>
-  <li>Asılsız ya da yığın bildirimler de kural ihlalidir.</li>
-</ul>
+<section>
+  <h2>Seçtiğin ad</h2>
+  <p>On altı karakter; kahraman seçme ekranında yazılır, lobide gruba ve oynarken karakterinin
+  üstünde görünür. Onu başkası okuyacağına göre:</p>
+  <ul class="plain">
+    <li>Terbiyeni koru. Hakaret, cinsel ifade ve nefret söylemi, hangi dilde ya da nasıl yaratıcı bir
+        yazımla olursa olsun, kabul edilmez.</li>
+    <li>Kendini başkası gibi gösterme — ne başka bir oyuncu, ne gerçek bir şirket, ne de bu oyunun
+        geliştiricisi.</li>
+    <li>Adın içinde kişisel bilgi olmasın; ne seninki ne de bir başkasınınki.</li>
+    <li>Seçtiğin ad sonsuza dek sana yapışmaz; istediğin zaman değiştirirsin.</li>
+  </ul>
+</section>
 
-<h2>4. Olağan koşullar</h2>
-<ul>
-  <li>Shrinefall, kişisel eğlence için olduğu gibi sunulur. Çevrimiçi ortak oyun özelliğini makul
-      bir bildirimle değiştirebilir ya da kaldırabiliriz; tek oyunculu oyun çevrimdışı çalışmaya devam
-      eder.</li>
-  <li>Çevrimiçi özellikleri kullanmak için 13 yaşında ya da daha büyük olmalısın.</li>
-  <li>Shrinefall'da satın alınacak bir şey ve reklam yoktur.</li>
-  <li>Oyun ve metinleri © 2026 Kaan İpek'e aittir. Üçüncü taraf görseller, sesler ve yazı tipleri
-      kendi lisanslarını korur; kaynakça oyunun ayarlar ekranında ve
-      <a href="index.html">destek sayfasında</a> yer alır.</li>
-  <li>Bu koşullara Amerika Birleşik Devletleri Texas eyaleti hukuku uygulanır; tüketiciler
-      yaşadıkları ülkenin korumalarını korur. Bir mahkeme bir maddeyi geçersiz bulursa kalanlar
-      geçerliliğini sürdürür.</li>
-</ul>
+<section>
+  <h2>Oda kodu bir davettir</h2>
+  <p>Bir yabancıyla grubunun arasında altı karakter var; o yüzden kodu, yayımlanacak bir şey gibi
+  değil, elden verilecek bir şey gibi düşün. Odayı kim açtıysa kodu kimin alacağına o karar verir;
+  odalar arasında gezinme, herkese açık bir oda listesi ya da yanına tanımadığın birini oturtabilecek
+  otomatik eşleştirme yoktur.</p>
+</section>
 
-<h2>İletişim</h2>
-<p><a href="mailto:rld.ranger07@gmail.com">rld.ranger07@gmail.com</a> — bildirimler, itirazlar ve sorular buraya gider. Yanıtlar aynı adresten gelir.</p>
+<section>
+  <h2>Dürüst oynamak</h2>
+  <ul class="plain">
+    <li>Odayı kuran kişi dünyayı da çalıştırır; sayılan kopya onunkidir.</li>
+    <li>Değiştirilmiş derlemeler, avantaj için bile bile kullanılan hatalar ve özellikle uğraşıp
+        başkasının oyununu baltalamak — üçü de hiledir.</li>
+    <li>Bir odadan keyif almıyorsan ortak oyun ekranındaki <kbd>LEAVE</kbd>, oyuna başladıysan da
+        duraklatma menüsündeki <kbd>LEAVE TO MENU</kbd> seni kendi dünyana geri koyar; kazandığın
+        her şey karakterinin üstünde kalır.</li>
+  </ul>
+</section>
 
-<footer>Shrinefall © 2026 Kaan İpek.</footer>
+<section>
+  <h2>Birini bize bildirmek</h2>
+  <p><a href="mailto:rld.ranger07@gmail.com">rld.ranger07@gmail.com</a> adresine yaz: oyuncunun adı,
+  olup bitenin anlatımı ve kabaca ne zaman olduğu. Usul bundan ibaret — doldurulacak bir form
+  yok.</p>
+  <p>Gelen her mesajı bir betik değil, bir insan açar — mesajın ulaşmasından sonraki
+  <strong>72 saat</strong> içinde.</p>
+  <p>Sen de bize karşı dürüst ol: olmamış bir şikâyeti uydurmak ya da aynı şikâyeti üst üste
+  göndermek başlı başına bu kuralların ihlalidir.</p>
+</section>
+
+<section>
+  <h2>Elimizden gerçekte ne geliyor</h2>
+  <p>Sınırları açıkça söylemek, tutulamayacak bir söz vermekten daha adil. Shrinefall'da askıya
+  alınacak hesap yok, bir oyuncunun arkasında duran bir kimlik de yok; dolayısıyla elimizdeki
+  gerçekçi karşılıklar yol göstermek ve — bir kural apaçık çiğnendiyse — o kişiye bundan böyle yardım
+  etmemektir. Oyundaki en güçlü araç odayı açanın elinde: kodu dağıtmayı bırakıp yeni bir oda
+  kurabilir.</p>
+</section>
+
+<section>
+  <h2>Satılık hiçbir şey yok</h2>
+  <p>Shrinefall'da mağaza, parayla alınan bir oyun içi para birimi, abonelik, ganimet kutusu ve
+  hiçbir türden reklam yoktur. İndirmesi de ücretsiz; yani aramızda iki yönde de para geçmiyor.</p>
+</section>
+
+<section>
+  <h2>Oyun nasıl sunuluyor</h2>
+  <ul class="plain">
+    <li>Shrinefall olduğu gibi, kendi eğlencen için sunulur; belirli bir amaca uygun düşeceğine dair
+        bir garanti verilmez.</li>
+    <li>Çevrimiçi odalar makul bir bildirimle değiştirilebilir ya da kaldırılabilir. Tek kişilik oyun
+        onlara bağlı değildir, çevrimdışı çalışmayı sürdürür.</li>
+    <li>Çevrimiçi taraf için alt yaş sınırı on üçtür.</li>
+    <li>Oyun, kodu ve metinleri © 2026 Kaan İpek'e aittir. Görseller, sesler ve yazı tipleri onları
+        yapan sanatçılarındır, kendi lisansları altında kalır ve <kbd>CREDITS</kbd> ekranıyla
+        <a href="index.html" hreflang="en">yardım masasında</a> tek tek yazılıdır.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Hukuk ve geri kalanı</h2>
+  <p>Bu kurallar, Amerika Birleşik Devletleri'nin Teksas eyaleti hukukuna göre okunur. Bu, kendi
+  ülkenin sana tanıdığı tüketici haklarını elinden almaz; o haklar geçerli olmayı sürdürür. Bir
+  mahkeme buradaki tek bir paragrafı geçersiz sayarsa, kalan paragrafların hepsi olduğu gibi ayakta
+  kalır.</p>
+</section>
+
+<section>
+  <h2>Hepsi için tek adres</h2>
+  <p>Bir oyuncuyu bildirmen, bir karara itirazın ve sıradan soruların aynı yere gidiyor:
+  <a href="mailto:rld.ranger07@gmail.com">rld.ranger07@gmail.com</a>.</p>
+</section>
+
+</main>
+
+<p class="colophon">Shrinefall © 2026 Kaan İpek, RLD Games adıyla yayımlanır.
+<a href="index.html" hreflang="en">Yardım masası</a> ·
+<a href="privacy-tr.html">Hangi veri ne işe yarıyor</a> ·
+<a href="delete-data.html" hreflang="en">Verini silmek</a></p>
+</div>
 </body>
 </html>
