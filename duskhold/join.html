@@ -1,0 +1,159 @@
+<!doctype html>
+<!--
+  The co-op invite page (1.0.6). The game's INVITE shares https://kaanipek.github.io/duskhold/join.html?c=CODE
+  (UI/CoopScreen.LinkFor), because most messengers do not make duskhold:// tappable and a friend without
+  the game needs a way to the store. Published by Tools/publish_docs.sh with the other docs pages.
+    join.html?c=ABC123        room code: OPEN (duskhold://join/CODE, or an Android intent that falls back
+                              to Play), copy code, both store buttons
+    join.html?a=Name%231234   ally code: copy + store buttons (no OPEN: 1.0.5 reads any duskhold:// link's
+                              last six letters as a room code)
+    join.html                 plain "get the game" page
+  No tracking script, no cookies, no third-party code. Turkish when the browser is Turkish, else English.
+  PT: the App Store Connect campaign provider token; while it is "PT_TOKEN" the App Store link carries no
+  campaign parameters (it still works).
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Duskhold</title>
+<meta name="description" content="Build by day. Hold the night. Medieval tower defense, co-op for up to 4 players.">
+<meta property="og:title" content="Duskhold">
+<meta property="og:description" content="Build by day. Hold the night. Medieval tower defense, co-op for up to 4 players.">
+<meta property="og:image" content="https://kaanipek.github.io/games/art/duskhold.jpg">
+<meta property="og:image:width" content="1000">
+<meta property="og:image:height" content="620">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root { --ink:#201b16; --bg:#faf6ef; --card:#fffdf8; --line:#e2d6c2; --accent:#8a5a1c; --btn:#2c2620; --btnink:#fff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#ece5da; --bg:#17141b; --card:#211d26; --line:#3a3340; --accent:#e0b063; --btn:#e0b063; --btnink:#17141b; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.55 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  main { max-width: 34rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+  img.hero { width:100%; height:auto; border-radius:12px; display:block; }
+  h1 { font-size:1.6rem; margin:1.1rem 0 .3rem; }
+  p { margin:.4rem 0 .9rem; }
+  .code { font: 700 2rem/1.2 ui-monospace, Menlo, Consolas, monospace; letter-spacing:.18em;
+          background:var(--card); border:1px solid var(--line); border-radius:10px;
+          padding:.6rem .8rem; text-align:center; margin:.6rem 0; word-break:break-all; }
+  .note { font-size:.9rem; opacity:.75; }
+  a.btn, button.btn { display:block; width:100%; text-align:center; text-decoration:none; cursor:pointer;
+          font-family:inherit; font-weight:600; font-size:1.05rem; line-height:1;
+          padding:1rem; margin:.55rem 0; border-radius:10px; border:0;
+          background:var(--btn); color:var(--btnink); }
+  a.btn.alt, button.btn.alt { background:transparent; color:var(--accent); border:1px solid var(--accent); }
+  [hidden] { display:none !important; }
+  footer { margin-top:2rem; font-size:.85rem; opacity:.7; }
+  footer a { color:var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <img class="hero" src="https://kaanipek.github.io/games/art/duskhold.jpg" width="1000" height="620"
+       alt="Duskhold, night 1: raiders march down the road toward the soldiers and the tower holding it">
+
+  <h1 id="title">Duskhold</h1>
+  <p id="lead"></p>
+
+  <div id="codeBox" hidden>
+    <div class="code" id="code"></div>
+    <button class="btn alt" id="copy" type="button"></button>
+    <p class="note" id="codeNote"></p>
+  </div>
+
+  <a class="btn" id="open" hidden></a>
+  <a class="btn" id="ios" href="#"></a>
+  <a class="btn" id="android" href="#"></a>
+
+  <footer><a href="index.html">Support</a> · <a href="privacy.html">Privacy</a></footer>
+</main>
+<script>
+(function () {
+  var APP_ID = "6806370481";
+  var PKG = "com.rldgames.duskhold";
+  var PT = "PT_TOKEN"; // the owner's provider token; left as is, the link has no campaign tags
+
+  var q = new URLSearchParams(location.search);
+  var room = (q.get("c") || "").replace(/[^A-Za-z0-9]/g, "").toUpperCase();
+  if (room.length !== 6) room = "";
+  var ally = (q.get("a") || "").slice(0, 40);
+  var kind = room ? "room" : (ally ? "ally" : "get");
+
+  var tr = /^tr\b/i.test(navigator.language || "");
+  if (tr) document.documentElement.lang = "tr";
+  var T = tr ? {
+    lead_room: "Bir arkadaşın Duskhold'da savaş odası açtı ve sana kodunu gönderdi. Duskhold, 4 kişiye kadar birlikte oynanan ortaçağ kule savunma oyunu: gündüz inşa et, geceyi tut.",
+    lead_ally: "Bir arkadaşın seni Duskhold'da müttefik olarak istiyor. Oyunu indir, MÜTTEFİKLER ekranında bu kodu ekle.",
+    lead_get:  "Gündüz inşa et, geceyi tut. Ortaçağ kule savunma; tek başına internetsiz ya da arkadaşlarınla birlikte en fazla 4 kişi.",
+    note_room: "Kod, arkadaşının savaş odası açık kaldığı sürece geçerli. Co-op için internet ve iki telefonda da aynı oyun sürümü gerekir. Oyunu yeni indiriyorsan önce kodu kopyala; oyunda SAVAŞ → CO-OP → YAPIŞTIR → KATIL.",
+    note_ally: "Oyunda: MÜTTEFİKLER → kodu yapıştır → EKLE.",
+    copy: "Kodu kopyala", copied: "Kopyalandı", selected: "Kod seçildi — basılı tutup kopyala",
+    open: "Duskhold yüklü — aç",
+    ios: "App Store'dan indir (iPhone, iPad)", android: "Google Play'den indir"
+  } : {
+    lead_room: "A friend is hosting a war room in Duskhold and sent you the code. Duskhold is a medieval tower defense game for up to 4 players: build by day, hold the night.",
+    lead_ally: "A friend wants you as an ally in Duskhold. Get the game, then add this code on the ALLIES screen.",
+    lead_get:  "Build by day. Hold the night. Medieval tower defense — solo with no internet needed, or co-op with up to 3 friends.",
+    note_room: "The code works while your friend's war room is open. Co-op needs an internet connection and the same game version on both phones. Installing first? Copy the code, then in the game: BATTLE → CO-OP → PASTE → JOIN.",
+    note_ally: "In the game: ALLIES → paste the code → ADD.",
+    copy: "Copy code", copied: "Copied", selected: "Code selected — long-press to copy",
+    open: "I have Duskhold — open it",
+    ios: "Get it on the App Store (iPhone, iPad)", android: "Get it on Google Play"
+  };
+
+  var ct = kind === "get" ? "share" : "invite";
+  var ios = "https://apps.apple.com/app/id" + APP_ID + "?pt=" + PT + "&ct=" + ct + "&mt=8";
+  if (PT === "PT_TOKEN") ios = "https://apps.apple.com/app/id" + APP_ID;
+  var ref = encodeURIComponent("utm_source=duskhold_" + ct + "&utm_medium=link&utm_campaign=" + kind);
+  var play = "https://play.google.com/store/apps/details?id=" + PKG + "&referrer=" + ref;
+
+  function $(id) { return document.getElementById(id); }
+  $("lead").textContent = T["lead_" + kind];
+  $("ios").textContent = T.ios; $("ios").href = ios;
+  $("android").textContent = T.android; $("android").href = play;
+
+  var ua = navigator.userAgent || "";
+  var isAndroid = /Android/i.test(ua);
+  var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  // The store the visitor can actually use goes first; the other stays for forwarding the link on.
+  if (isAndroid) $("android").parentNode.insertBefore($("android"), $("ios"));
+
+  var shown = kind === "room" ? room : ally;
+  if (shown) {
+    $("codeBox").hidden = false;
+    $("code").textContent = shown;
+    $("codeNote").textContent = T["note_" + kind];
+    $("copy").textContent = T.copy;
+    $("copy").onclick = function () {
+      var done = function () { $("copy").textContent = T.copied; };
+      // Only say "Copied" when something was copied. The fallback selects the code; if the old
+      // execCommand path also fails, the button says the code is selected instead of lying.
+      var fallback = function () {
+        var r = document.createRange(); r.selectNodeContents($("code"));
+        var s = getSelection(); s.removeAllRanges(); s.addRange(r);
+        var ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+        $("copy").textContent = ok ? T.copied : T.selected;
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(shown).then(done, fallback);
+      else fallback();
+    };
+  }
+
+  // OPEN only for a room code: duskhold://join/CODE is what every shipped build understands.
+  if (kind === "room" && (isIOS || isAndroid)) {
+    var open = $("open");
+    open.hidden = false;
+    open.textContent = T.open;
+    open.href = isAndroid
+      // Chrome opens the game if installed, the Play listing if not.
+      ? "intent://join/" + room + "#Intent;scheme=duskhold;package=" + PKG + ";end"
+      : "duskhold://join/" + room;
+  }
+})();
+</script>
+</body>
+</html>
